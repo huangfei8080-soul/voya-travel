@@ -1297,6 +1297,71 @@
   window.adminLogout = logout;
 
   /* ============================================
+     DATA EXPORT / IMPORT
+     ============================================ */
+  function exportData() {
+    apiGet("/data").then(function (data) {
+      var json = JSON.stringify(data, null, 2);
+      var blob = new Blob([json], { type: "application/json" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "voya-backup-" + new Date().toISOString().slice(0,10) + ".json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      toast("Data exported! File downloaded.");
+    }).catch(function () {
+      toast("Export failed — are you logged in?", true);
+    });
+  }
+
+  function importData(fileInput) {
+    var file = fileInput.files[0];
+    if (!file) return;
+    var statusEl = document.getElementById("import-status");
+    statusEl.style.color = "#6b7280";
+    statusEl.textContent = "Reading file...";
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        var data = JSON.parse(e.target.result);
+        statusEl.textContent = "Importing data...";
+        var sep = "/import".indexOf("?") >= 0 ? "&" : "?";
+        fetch(API + "/import" + sep + "token=" + encodeURIComponent(token), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json(); })
+          .then(function (res) {
+            if (res.success) {
+              statusEl.style.color = "#16a34a";
+              statusEl.textContent = "✅ Import successful! Reloading...";
+              toast("Data imported! Reloading page...");
+              setTimeout(function () { location.reload(); }, 1500);
+            } else {
+              statusEl.style.color = "#dc2626";
+              statusEl.textContent = "❌ Import failed: " + (res.error || "Unknown error");
+            }
+          }).catch(function () {
+            statusEl.style.color = "#dc2626";
+            statusEl.textContent = "❌ Import failed — server error.";
+          });
+      } catch (err) {
+        statusEl.style.color = "#dc2626";
+        statusEl.textContent = "❌ Invalid JSON file: " + err.message;
+      }
+    };
+    reader.readAsText(file);
+    fileInput.value = "";
+  }
+
+  window.exportData = exportData;
+  window.importData = importData;
+
+  /* ============================================
      INIT
      ============================================ */
   checkSession();

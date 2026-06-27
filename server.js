@@ -171,6 +171,22 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
+  // POST /api/import — import full data.json (backup restore)
+  if (resource === "import" && method === "POST") {
+    try {
+      const body = await readBody(req);
+      if (!body || typeof body !== "object") {
+        sendJSON(res, 400, { success: false, error: "Invalid data format" });
+        return;
+      }
+      writeData(body);
+      sendJSON(res, 200, { success: true, message: "Data imported successfully" });
+    } catch (e) {
+      sendJSON(res, 500, { success: false, error: "Import failed: " + e.message });
+    }
+    return;
+  }
+
   // GET /api/settings — return brand settings
   if (resource === "settings" && method === "GET") {
     const data = readData();
