@@ -20,6 +20,10 @@
       "href": "promotions.html"
     },
     {
+      "label": "Destinations",
+      "href": "destinations.html"
+    },
+    {
       "label": "Travel Journal",
       "href": "journal.html"
     },
@@ -387,12 +391,6 @@
       "readTime": "8 min"
     }
   ],
-  "featureBanner": {
-    "title": "Lock in your spot with a $200 deposit",
-    "subtitle": "Pay monthly or bi-weekly. Interest-free payment plans available on all trips.",
-    "btnText": "Learn More",
-    "btnHref": "about.html"
-  },
   "stats": [
     {
       "number": "50K+",
@@ -481,7 +479,7 @@
           },
           {
             "label": "Destinations",
-            "href": "products.html"
+            "href": "destinations.html"
           },
           {
             "label": "Travel Journal",

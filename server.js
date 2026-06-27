@@ -173,6 +173,23 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
+  // GET /api/about — return about page data
+  if (resource === "about" && method === "GET") {
+    const data = readData();
+    sendJSON(res, 200, data.about || {});
+    return;
+  }
+
+  // PUT /api/about — update about page data
+  if (resource === "about" && method === "PUT") {
+    const body = await readBody(req);
+    const data = readData();
+    data.about = body;
+    writeData(data);
+    sendJSON(res, 200, data.about);
+    return;
+  }
+
   // GET /api/data — also allow POST for full update (used by admin "save all")
   if (resource === "data" && method === "PUT") {
     const body = await readBody(req);
@@ -205,7 +222,7 @@ async function handleAPI(req, res, method, segments) {
   }
 
   // Collection-level operations: products, promotions, journal
-  if (["products", "promotions", "journal"].indexOf(resource) !== -1) {
+  if (["products", "promotions", "journal", "destinations"].indexOf(resource) !== -1) {
     const data = readData();
     const collection = data[resource] || [];
 

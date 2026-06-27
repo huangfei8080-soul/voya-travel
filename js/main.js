@@ -108,7 +108,6 @@
       '<div class="navbar__inner">' +
         '<nav class="navbar__menu" id="navMenu">' + links + "</nav>" +
         '<div class="navbar__right">' +
-          '<a href="products.html" class="btn btn--primary navbar__book">Book Now</a>' +
           '<a href="index.html" class="navbar__logo">' + logoHTML + "</a>" +
           '<button class="navbar__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>' +
         "</div>" +
@@ -295,18 +294,6 @@
       destEl.innerHTML = '<div class="dest-grid">' + tiles + "</div>";
     }
 
-    const fbEl = document.getElementById("home-feature");
-    if (fbEl && C.featureBanner) {
-      fbEl.innerHTML =
-        '<div class="feature-banner">' +
-          '<div class="feature-banner__content">' +
-            "<h2>" + esc(C.featureBanner.title) + "</h2>" +
-            "<p>" + esc(C.featureBanner.subtitle) + "</p>" +
-          "</div>" +
-          '<a href="' + C.featureBanner.btnHref + '" class="btn btn--primary btn--lg">' + esc(C.featureBanner.btnText) + "</a>" +
-        "</div>";
-    }
-
     const statEl = document.getElementById("home-stats");
     if (statEl && C.stats) {
       const items = C.stats.map(function (s) {
@@ -314,6 +301,31 @@
       }).join("");
       statEl.innerHTML = '<div class="stats">' + items + "</div>";
     }
+  }
+
+  /* ============================================
+     RENDER: Destinations Page
+     ============================================ */
+  function renderDestinationsPage() {
+    var el = document.getElementById("destinations-grid");
+    if (!el) return;
+    var dests = C.destinations || [];
+    if (!dests.length) {
+      el.innerHTML = '<div class="empty-state">No destinations yet. Check back soon!</div>';
+      return;
+    }
+    var tiles = dests.map(function (d) {
+      return (
+        '<div class="dest-tile">' +
+          '<img src="' + d.image + '" alt="' + esc(d.name) + '" loading="lazy">' +
+          '<div class="dest-tile__overlay">' +
+            '<span class="dest-tile__name">' + esc(d.name) + "</span>" +
+            (d.desc ? '<p class="dest-tile__desc">' + esc(d.desc) + "</p>" : "") +
+          "</div>" +
+        "</div>"
+      );
+    }).join("");
+    el.innerHTML = '<div class="dest-grid">' + tiles + "</div>";
   }
 
   /* ============================================
@@ -651,6 +663,7 @@
     renderHomepage();
     renderProductsPage();
     renderPromotionsPage();
+    renderDestinationsPage();
     renderJournalPage();
     renderAboutPage();
     renderProductDetail();

@@ -10,10 +10,12 @@
   var API = "/api";
   var products = [];
   var promotions = [];
+  var destinations = [];
   var journal = [];
   var settings = {};
   var hero = {};
   var footer = {};
+  var about = {};
 
   /* ---- Toast notification ---- */
   function toast(msg, isError) {
@@ -85,14 +87,18 @@
     apiGet("/data").then(function (data) {
       products = data.products || [];
       promotions = data.promotions || [];
+      destinations = data.destinations || [];
       journal = data.journal || [];
       settings = data.brand || {};
       hero = data.hero || {};
       footer = data.footer || {};
+      about = data.about || {};
       renderProducts();
       renderPromos();
+      renderDestinations();
       renderJournal();
       renderSettings();
+      renderAboutEditor();
     }).catch(function () {
       toast("Cannot connect to server. Is server.js running?", true);
     });
@@ -517,6 +523,109 @@
   };
 
   /* ============================================
+     DESTINATIONS
+     ============================================ */
+  function renderDestinations() {
+    var el = document.getElementById("destination-list");
+    if (!destinations.length) {
+      el.innerHTML = '<div class="empty-list">No destinations yet. Click "Add Destination" to create one.</div>';
+      return;
+    }
+    el.innerHTML = destinations.map(function (d) {
+      return (
+        '<div class="item-row">' +
+          '<img src="' + (d.image || "") + '" alt="">' +
+          '<div class="item-info"><h4>' + esc(d.name) + '</h4><p>' + esc(d.desc || "") + '</p></div>' +
+          '<span></span><span></span>' +
+          '<button class="btn-edit" onclick="editDestination(\'' + d.id + '\')">Edit</button>' +
+          '<button class="btn-delete" onclick="deleteDestination(\'' + d.id + '\')">Delete</button>' +
+        '</div>'
+      );
+    }).join("");
+  }
+
+  window.showDestinationForm = function (id) {
+    var existing = id ? destinations.find(function (d) { return d.id === id; }) : null;
+    var d = existing || { name: "", image: "", desc: "" };
+
+    document.getElementById("destination-form-container").innerHTML =
+      '<div class="admin-form">' +
+        '<h3>' + (existing ? "Edit Destination" : "Add Destination") + '</h3>' +
+        '<div class="form-field" style="margin-bottom:16px;">' +
+          '<label>Destination Name</label>' +
+          '<input type="text" id="df-name" value="' + esc(d.name) + '" placeholder="e.g. Japan">' +
+        '</div>' +
+        '<div class="form-row--full form-field" style="margin-bottom:16px;">' +
+          '<label>Image</label>' +
+          '<div class="image-upload">' +
+            (d.image ? '<img src="' + d.image + '" id="df-img-preview">' : '<img src="" id="df-img-preview" style="display:none;">') +
+            '<input type="file" accept="image/*" id="df-file" onchange="previewImage(this,\'df-img-preview\')">' +
+            '<input type="text" class="url-input" id="df-image-url" placeholder="or paste image URL" value="' + esc(d.image) + '">' +
+          '</div>' +
+        '</div>' +
+        '<div class="form-field" style="margin-bottom:16px;">' +
+          '<label>Description (short text shown on the destination tile)</label>' +
+          '<textarea id="df-desc" style="min-height:80px;">' + esc(d.desc || "") + '</textarea>' +
+        '</div>' +
+        '<div style="display:flex;gap:12px;margin-top:20px;">' +
+          '<button class="btn-save" onclick="saveDestination(\'' + (id || "") + '\')">' + (existing ? "Update" : "Create") + '</button>' +
+          '<button class="btn-cancel" onclick="cancelDestinationForm()">Cancel</button>' +
+        '</div>' +
+      '</div>';
+  };
+
+  window.cancelDestinationForm = function () {
+    document.getElementById("destination-form-container").innerHTML = "";
+  };
+
+  window.saveDestination = function (id) {
+    var fileInput = document.getElementById("df-file");
+    var file = fileInput && fileInput.files[0];
+    var urlVal = document.getElementById("df-image-url").value;
+
+    function doSave(imagePath) {
+      var data = {
+        name: document.getElementById("df-name").value,
+        image: imagePath || urlVal || "",
+        desc: document.getElementById("df-desc").value
+      };
+
+      if (id) {
+        apiPut("/destinations/" + id, data).then(function () {
+          toast("Destination updated!");
+          cancelDestinationForm();
+          loadAll();
+        }).catch(function () { toast("Update failed", true); });
+      } else {
+        apiPost("/destinations", data).then(function () {
+          toast("Destination created!");
+          cancelDestinationForm();
+          loadAll();
+        }).catch(function () { toast("Create failed", true); });
+      }
+    }
+
+    if (file) {
+      uploadImage(file, function (path) { doSave(path); });
+    } else {
+      doSave(null);
+    }
+  };
+
+  window.editDestination = function (id) {
+    showDestinationForm(id);
+    document.getElementById("destination-form-container").scrollIntoView({ behavior: "smooth" });
+  };
+
+  window.deleteDestination = function (id) {
+    if (!confirm("Delete this destination? This cannot be undone.")) return;
+    apiDelete("/destinations/" + id).then(function () {
+      toast("Destination deleted");
+      loadAll();
+    }).catch(function () { toast("Delete failed", true); });
+  };
+
+  /* ============================================
      JOURNAL
      ============================================ */
   function renderJournal() {
@@ -901,6 +1010,211 @@
     }).catch(function () {
       toast("Failed to save footer", true);
     });
+  };
+
+  /* ============================================
+     ABOUT US PAGE EDITOR
+     ============================================ */
+  function renderAboutEditor() {
+    var el = document.getElementById("about-form-container");
+    if (!el) return;
+    var a = about || {};
+
+    /* Build values rows */
+    var valuesHTML = (a.values || []).map(function (v, i) {
+      return (
+        '<div class="itinerary-day-edit" data-val-index="' + i + '">' +
+          '<div class="itinerary-day-edit__header">' +
+            '<span>Value ' + (i + 1) + '</span>' +
+            '<button class="btn-remove-day" onclick="this.closest(\'.itinerary-day-edit\').remove()">Remove</button>' +
+          '</div>' +
+          '<div class="form-row" style="margin-bottom:8px;">' +
+            '<div class="form-field"><label>Icon (1-2 letters)</label><input type="text" class="ab-val-icon" value="' + esc(v.icon || "") + '" maxlength="3" style="max-width:80px;"></div>' +
+            '<div class="form-field"><label>Title</label><input type="text" class="ab-val-title" value="' + esc(v.title || "") + '"></div>' +
+          '</div>' +
+          '<div class="form-field"><label>Description</label><textarea class="ab-val-desc" style="min-height:60px;">' + esc(v.desc || "") + '</textarea></div>' +
+        '</div>'
+      );
+    }).join("");
+
+    /* Build stats rows */
+    var statsHTML = (a.aboutStats || []).map(function (s, i) {
+      return (
+        '<div class="gallery-editor__item">' +
+          '<input type="text" class="ab-stat-number" value="' + esc(s.number || "") + '" placeholder="e.g. 50K+" style="max-width:120px;">' +
+          '<input type="text" class="ab-stat-label" value="' + esc(s.label || "") + '" placeholder="e.g. Happy Travelers">' +
+          '<button class="btn-remove-gallery" onclick="this.parentElement.remove()">Remove</button>' +
+        '</div>'
+      );
+    }).join("");
+
+    el.innerHTML =
+      '<div class="admin-form">' +
+        '<h3>About Hero Section</h3>' +
+        '<div class="form-row--full form-field" style="margin-bottom:16px;">' +
+          '<label>Hero Background Image</label>' +
+          '<div class="image-upload">' +
+            (a.heroImage ? '<img src="' + a.heroImage + '" id="ab-hero-img-preview">' : '<img src="" id="ab-hero-img-preview" style="display:none;">') +
+            '<input type="file" accept="image/*" id="ab-hero-file" onchange="previewImage(this,\'ab-hero-img-preview\')">' +
+            '<input type="text" class="url-input" id="ab-hero-url" placeholder="or paste image URL" value="' + esc(a.heroImage || "") + '">' +
+          '</div>' +
+        '</div>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Hero Title</label><input type="text" id="ab-hero-title" value="' + esc(a.heroTitle || "") + '"></div>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Hero Subtitle</label><textarea id="ab-hero-subtitle" style="min-height:60px;">' + esc(a.heroSubtitle || "") + '</textarea></div>' +
+      '</div>' +
+
+      '<div class="admin-form">' +
+        '<h3>Our Story Section</h3>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Story Title</label><input type="text" id="ab-story-title" value="' + esc(a.storyTitle || "") + '"></div>' +
+        '<div class="form-row--full form-field" style="margin-bottom:16px;">' +
+          '<label>Story Image</label>' +
+          '<div class="image-upload">' +
+            (a.storyImage ? '<img src="' + a.storyImage + '" id="ab-story-img-preview">' : '<img src="" id="ab-story-img-preview" style="display:none;">') +
+            '<input type="file" accept="image/*" id="ab-story-file" onchange="previewImage(this,\'ab-story-img-preview\')">' +
+            '<input type="text" class="url-input" id="ab-story-url" placeholder="or paste image URL" value="' + esc(a.storyImage || "") + '">' +
+          '</div>' +
+        '</div>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Story Text (one paragraph per line)</label><textarea id="ab-story-text" style="min-height:120px;">' + esc((a.storyText || []).join("\n")) + '</textarea></div>' +
+      '</div>' +
+
+      '<div class="admin-form">' +
+        '<h3>Our Mission Section</h3>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Mission Title</label><input type="text" id="ab-mission-title" value="' + esc(a.missionTitle || "") + '"></div>' +
+        '<div class="form-row--full form-field" style="margin-bottom:16px;">' +
+          '<label>Mission Image</label>' +
+          '<div class="image-upload">' +
+            (a.missionImage ? '<img src="' + a.missionImage + '" id="ab-mission-img-preview">' : '<img src="" id="ab-mission-img-preview" style="display:none;">') +
+            '<input type="file" accept="image/*" id="ab-mission-file" onchange="previewImage(this,\'ab-mission-img-preview\')">' +
+            '<input type="text" class="url-input" id="ab-mission-url" placeholder="or paste image URL" value="' + esc(a.missionImage || "") + '">' +
+          '</div>' +
+        '</div>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Mission Text (one paragraph per line)</label><textarea id="ab-mission-text" style="min-height:120px;">' + esc((a.missionText || []).join("\n")) + '</textarea></div>' +
+      '</div>' +
+
+      '<div class="admin-form">' +
+        '<h3>Values Section</h3>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Values Section Title</label><input type="text" id="ab-values-title" value="' + esc(a.valuesTitle || "") + '"></div>' +
+        '<div class="itinerary-editor">' +
+          '<h4 style="margin-bottom:12px;color:#0B9BAE;">Value Cards</h4>' +
+          '<div id="ab-values-list">' + valuesHTML + '</div>' +
+          '<button class="btn-add-day" onclick="addAboutValue()">+ Add Value</button>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="admin-form">' +
+        '<h3>Stats Section</h3>' +
+        '<div class="form-field" style="margin-bottom:16px;"><label>Stats Section Title</label><input type="text" id="ab-stats-title" value="' + esc(a.statsTitle || "") + '"></div>' +
+        '<div class="gallery-editor">' +
+          '<h4 style="margin-bottom:12px;color:#0B9BAE;">Stat Items</h4>' +
+          '<div id="ab-stats-list">' + statsHTML + '</div>' +
+          '<button class="btn-add-gallery" onclick="addAboutStat()">+ Add Stat</button>' +
+        '</div>' +
+      '</div>' +
+
+      '<div style="display:flex;gap:12px;margin-top:20px;">' +
+        '<button class="btn-save" onclick="saveAbout()">Save About Page</button>' +
+      '</div>';
+  }
+
+  window.addAboutValue = function () {
+    var list = document.getElementById("ab-values-list");
+    var count = list.children.length;
+    var div = document.createElement("div");
+    div.innerHTML =
+      '<div class="itinerary-day-edit" data-val-index="' + count + '">' +
+        '<div class="itinerary-day-edit__header">' +
+          '<span>Value ' + (count + 1) + '</span>' +
+          '<button class="btn-remove-day" onclick="this.closest(\'.itinerary-day-edit\').remove()">Remove</button>' +
+        '</div>' +
+        '<div class="form-row" style="margin-bottom:8px;">' +
+          '<div class="form-field"><label>Icon (1-2 letters)</label><input type="text" class="ab-val-icon" value="" maxlength="3" style="max-width:80px;"></div>' +
+          '<div class="form-field"><label>Title</label><input type="text" class="ab-val-title" value=""></div>' +
+        '</div>' +
+        '<div class="form-field"><label>Description</label><textarea class="ab-val-desc" style="min-height:60px;"></textarea></div>' +
+      '</div>';
+    list.appendChild(div.firstChild);
+  };
+
+  window.addAboutStat = function () {
+    var list = document.getElementById("ab-stats-list");
+    var div = document.createElement("div");
+    div.innerHTML =
+      '<div class="gallery-editor__item">' +
+        '<input type="text" class="ab-stat-number" value="" placeholder="e.g. 50K+" style="max-width:120px;">' +
+        '<input type="text" class="ab-stat-label" value="" placeholder="e.g. Happy Travelers">' +
+        '<button class="btn-remove-gallery" onclick="this.parentElement.remove()">Remove</button>' +
+      '</div>';
+    list.appendChild(div.firstChild);
+  };
+
+  function collectAboutValues() {
+    var rows = document.querySelectorAll("#ab-values-list .itinerary-day-edit");
+    var result = [];
+    rows.forEach(function (row) {
+      var icon = row.querySelector(".ab-val-icon").value;
+      var title = row.querySelector(".ab-val-title").value;
+      var desc = row.querySelector(".ab-val-desc").value;
+      if (title) result.push({ icon: icon, title: title, desc: desc });
+    });
+    return result;
+  }
+
+  function collectAboutStats() {
+    var rows = document.querySelectorAll("#ab-stats-list .gallery-editor__item");
+    var result = [];
+    rows.forEach(function (row) {
+      var number = row.querySelector(".ab-stat-number").value.trim();
+      var label = row.querySelector(".ab-stat-label").value.trim();
+      if (number || label) result.push({ number: number, label: label });
+    });
+    return result;
+  }
+
+  function textareaToLines(id) {
+    var el = document.getElementById(id);
+    if (!el) return [];
+    return el.value.split("\n").map(function (s) { return s.trim(); }).filter(function (s) { return s.length > 0; });
+  }
+
+  window.saveAbout = function () {
+    /* Check for file uploads */
+    var heroFile = document.getElementById("ab-hero-file");
+    var storyFile = document.getElementById("ab-story-file");
+    var missionFile = document.getElementById("ab-mission-file");
+
+    var pending = 0;
+    var heroPath = null, storyPath = null, missionPath = null;
+
+    function trySave() {
+      if (pending > 0) return;
+      var data = {
+        heroImage: heroPath || document.getElementById("ab-hero-url").value,
+        heroTitle: document.getElementById("ab-hero-title").value,
+        heroSubtitle: document.getElementById("ab-hero-subtitle").value,
+        storyTitle: document.getElementById("ab-story-title").value,
+        storyImage: storyPath || document.getElementById("ab-story-url").value,
+        storyText: textareaToLines("ab-story-text"),
+        missionTitle: document.getElementById("ab-mission-title").value,
+        missionImage: missionPath || document.getElementById("ab-mission-url").value,
+        missionText: textareaToLines("ab-mission-text"),
+        valuesTitle: document.getElementById("ab-values-title").value,
+        values: collectAboutValues(),
+        statsTitle: document.getElementById("ab-stats-title").value,
+        aboutStats: collectAboutStats()
+      };
+
+      apiPut("/about", data).then(function (res) {
+        about = res;
+        toast("About page saved! Refresh the website to see changes.");
+      }).catch(function () {
+        toast("Failed to save about page", true);
+      });
+    }
+
+    if (heroFile && heroFile.files[0]) { pending++; uploadImage(heroFile.files[0], function (p) { heroPath = p; pending--; trySave(); }); }
+    if (storyFile && storyFile.files[0]) { pending++; uploadImage(storyFile.files[0], function (p) { storyPath = p; pending--; trySave(); }); }
+    if (missionFile && missionFile.files[0]) { pending++; uploadImage(missionFile.files[0], function (p) { missionPath = p; pending--; trySave(); }); }
+    trySave();
   };
 
   /* ============================================

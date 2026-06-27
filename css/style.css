@@ -269,10 +269,6 @@ h4 { font-size: 1.2rem; }
   gap: 16px;
 }
 
-.navbar__book {
-  white-space: nowrap;
-}
-
 .navbar__toggle {
   display: none;
   flex-direction: column;
@@ -311,9 +307,6 @@ h4 { font-size: 1.2rem; }
   }
   .navbar__toggle {
     display: flex;
-  }
-  .navbar__book {
-    display: none;
   }
 }
 
@@ -664,6 +657,13 @@ h4 { font-size: 1.2rem; }
   font-weight: 700;
   font-size: 1.1rem;
   font-family: var(--font-display);
+}
+
+.dest-tile__desc {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {

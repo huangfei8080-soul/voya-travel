@@ -23,6 +23,7 @@ const SITE_CONFIG = {
     { label: "Home",          href: "index.html" },
     { label: "Latest Trips",  href: "products.html" },
     { label: "Deals",         href: "promotions.html" },
+    { label: "Destinations",  href: "destinations.html" },
     { label: "Travel Journal",href: "journal.html" },
     { label: "About Us",      href: "about.html" },
   ],
@@ -247,15 +248,7 @@ const SITE_CONFIG = {
     },
   ],
 
-  /* ---- 8. HOMEPAGE FEATURE BANNER ---- */
-  featureBanner: {
-    title: "Lock in your spot with a $200 deposit",
-    subtitle: "Pay monthly or bi-weekly. Interest-free payment plans available on all trips.",
-    btnText: "Learn More",
-    btnHref: "about.html",
-  },
-
-  /* ---- 9. HOMEPAGE STATS ---- */
+  /* ---- 8. HOMEPAGE STATS ---- */
   stats: [
     { number: "50K+", label: "Happy Travelers" },
     { number: "120+", label: "Trips Worldwide" },
@@ -308,7 +301,7 @@ const SITE_CONFIG = {
         links: [
           { label: "All Trips",     href: "products.html" },
           { label: "Deals",         href: "promotions.html" },
-          { label: "Destinations",  href: "products.html" },
+          { label: "Destinations",  href: "destinations.html" },
           { label: "Travel Journal",href: "journal.html" },
         ],
       },

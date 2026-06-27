@@ -331,7 +331,9 @@
   <div class="admin-tabs">
     <button class="admin-tab active" data-tab="products">Products</button>
     <button class="admin-tab" data-tab="promotions">Promotions</button>
+    <button class="admin-tab" data-tab="destinations">Destinations</button>
     <button class="admin-tab" data-tab="journal">Journal</button>
+    <button class="admin-tab" data-tab="about">About Us</button>
     <button class="admin-tab" data-tab="settings">Settings</button>
   </div>
 
@@ -358,6 +360,16 @@
       <div class="item-list" id="promo-list"></div>
     </div>
 
+    <!-- Destinations Section -->
+    <div class="admin-section" id="section-destinations">
+      <div class="section-toolbar">
+        <h2>Popular Destinations</h2>
+        <button class="btn-add" onclick="showDestinationForm()">+ Add Destination</button>
+      </div>
+      <div id="destination-form-container"></div>
+      <div class="item-list" id="destination-list"></div>
+    </div>
+
     <!-- Journal Section -->
     <div class="admin-section" id="section-journal">
       <div class="section-toolbar">
@@ -374,6 +386,14 @@
         <h2>Site Settings</h2>
       </div>
       <div id="settings-form-container"></div>
+    </div>
+
+    <!-- About Section -->
+    <div class="admin-section" id="section-about">
+      <div class="section-toolbar">
+        <h2>About Us Page</h2>
+      </div>
+      <div id="about-form-container"></div>
     </div>
 
   </div>
