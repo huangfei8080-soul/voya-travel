@@ -1190,7 +1190,7 @@ h4 { font-size: 1.2rem; }
 }
 
 .detail-highlights li::before {
-  content: "\u2714";
+  content: "\2714";
   position: absolute;
   left: 0;
   color: var(--color-accent);
@@ -1319,14 +1319,14 @@ h4 { font-size: 1.2rem; }
 }
 
 .included-box--yes li::before {
-  content: "\u2714";
+  content: "\2714";
   position: absolute;
   left: 0;
   color: #16a34a;
 }
 
 .included-box--no li::before {
-  content: "\u2718";
+  content: "\2718";
   position: absolute;
   left: 0;
   color: #dc2626;
