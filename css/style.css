@@ -203,8 +203,7 @@ h4 { font-size: 1.2rem; }
   height: 84px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between;
   gap: 24px;
 }
 
@@ -220,7 +219,7 @@ h4 { font-size: 1.2rem; }
 }
 
 .navbar__logo img {
-  height: 64px;
+  height: 56px;
   width: auto;
 }
 
@@ -232,8 +231,6 @@ h4 { font-size: 1.2rem; }
   display: flex;
   align-items: center;
   gap: 32px;
-  position: absolute;
-  left: 24px;
 }
 
 .navbar__link {
@@ -266,12 +263,14 @@ h4 { font-size: 1.2rem; }
   width: 100%;
 }
 
-.navbar__actions {
+.navbar__right {
   display: flex;
   align-items: center;
   gap: 16px;
-  position: absolute;
-  right: 24px;
+}
+
+.navbar__book {
+  white-space: nowrap;
 }
 
 .navbar__toggle {
@@ -312,6 +311,9 @@ h4 { font-size: 1.2rem; }
   }
   .navbar__toggle {
     display: flex;
+  }
+  .navbar__book {
+    display: none;
   }
 }
 
@@ -942,7 +944,7 @@ h4 { font-size: 1.2rem; }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -1484,6 +1486,10 @@ h4 { font-size: 1.2rem; }
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 8px;
+}
+
+.ff-links-list {
   margin-bottom: 8px;
 }
 

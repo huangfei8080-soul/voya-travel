@@ -13,6 +13,7 @@
   var journal = [];
   var settings = {};
   var hero = {};
+  var footer = {};
 
   /* ---- Toast notification ---- */
   function toast(msg, isError) {
@@ -87,6 +88,7 @@
       journal = data.journal || [];
       settings = data.brand || {};
       hero = data.hero || {};
+      footer = data.footer || {};
       renderProducts();
       renderPromos();
       renderJournal();
@@ -688,6 +690,33 @@
         '<div style="display:flex;gap:12px;margin-top:20px;">' +
           '<button class="btn-save" onclick="saveSettings()">Save Settings</button>' +
         "</div>" +
+        /* --- Footer Settings --- */
+        '<div style="margin-top:32px;padding-top:24px;border-top:1px solid #e5e7eb;">' +
+          "<h3>Footer Settings</h3>" +
+          '<div class="form-field" style="margin-bottom:16px;">' +
+            "<label>Footer About Text (shown under brand name)</label>" +
+            '<textarea id="ff-about" style="min-height:60px;">' + esc(footer.about || "") + "</textarea>" +
+          "</div>" +
+          '<div class="form-field" style="margin-bottom:16px;">' +
+            "<label>Copyright Text</label>" +
+            '<input type="text" id="ff-copyright" value="' + esc(footer.copyright || "") + '">' +
+          "</div>" +
+          /* --- Footer Columns Editor --- */
+          '<div class="itinerary-editor" style="margin-top:16px;">' +
+            '<h4 style="margin-bottom:12px;color:#0B9BAE;">Footer Link Columns</h4>' +
+            '<div id="ff-columns-list">' + buildFooterColumns(footer.columns || []) + '</div>' +
+            '<button class="btn-add-day" onclick="addFooterColumn()">+ Add Column</button>' +
+          "</div>" +
+          /* --- Social Links Editor --- */
+          '<div class="gallery-editor" style="margin-top:16px;">' +
+            '<h4 style="margin-bottom:12px;color:#0B9BAE;">Social Media Links</h4>' +
+            '<div id="ff-social-list">' + buildSocialLinks(footer.social || []) + '</div>' +
+            '<button class="btn-add-gallery" onclick="addSocialLink()">+ Add Social Link</button>' +
+          "</div>" +
+          '<div style="display:flex;gap:12px;margin-top:20px;">' +
+            '<button class="btn-save" onclick="saveFooter()">Save Footer</button>' +
+          "</div>" +
+        "</div>" +
       "</div>";
   }
 
@@ -741,6 +770,136 @@
       toast("Settings saved! Refresh the website to see changes.");
     }).catch(function () {
       toast("Failed to save settings", true);
+    });
+  };
+
+  /* ---- Footer columns editor helpers ---- */
+  function buildFooterColumns(columns) {
+    if (!columns || !columns.length) return "";
+    return columns.map(function (col, i) {
+      return footerColumnRow(i, col);
+    }).join("");
+  }
+
+  function footerColumnRow(index, col) {
+    col = col || { title: "", links: [] };
+    var linksHTML = (col.links || []).map(function (link, j) {
+      return (
+        '<div class="gallery-editor__item">' +
+          '<input type="text" class="ff-link-label" value="' + esc(link.label || "") + '" placeholder="Link label">' +
+          '<input type="text" class="ff-link-href" value="' + esc(link.href || "") + '" placeholder="Link URL">' +
+          '<button class="btn-remove-gallery" onclick="removeFooterLink(this)">Remove</button>' +
+        "</div>"
+      );
+    }).join("");
+
+    return (
+      '<div class="itinerary-day-edit" data-col-index="' + index + '">' +
+        '<div class="itinerary-day-edit__header">' +
+          '<input type="text" class="ff-col-title" value="' + esc(col.title || "") + '" placeholder="Column title" style="flex:1;padding:6px 10px;border:1px solid #d1d5db;border-radius:6px;font-size:0.9rem;">' +
+          '<button class="btn-remove-day" onclick="this.closest(\'.itinerary-day-edit\').remove()">Remove Column</button>' +
+        "</div>" +
+        '<div class="ff-links-list">' + linksHTML + "</div>" +
+        '<button class="btn-add-gallery" onclick="addFooterLink(this)" style="margin-top:8px;">+ Add Link</button>' +
+      "</div>"
+    );
+  }
+
+  window.addFooterColumn = function () {
+    var list = document.getElementById("ff-columns-list");
+    var count = list.children.length;
+    var div = document.createElement("div");
+    div.innerHTML = footerColumnRow(count);
+    list.appendChild(div.firstChild);
+  };
+
+  window.addFooterLink = function (btn) {
+    var col = btn.closest(".itinerary-day-edit");
+    var linksList = col.querySelector(".ff-links-list");
+    var div = document.createElement("div");
+    div.innerHTML =
+      '<div class="gallery-editor__item">' +
+        '<input type="text" class="ff-link-label" value="" placeholder="Link label">' +
+        '<input type="text" class="ff-link-href" value="" placeholder="Link URL">' +
+        '<button class="btn-remove-gallery" onclick="removeFooterLink(this)">Remove</button>' +
+      "</div>";
+    linksList.appendChild(div.firstChild);
+  };
+
+  window.removeFooterLink = function (btn) {
+    btn.parentElement.remove();
+  };
+
+  function collectFooterColumns() {
+    var cols = document.querySelectorAll("#ff-columns-list .itinerary-day-edit");
+    var result = [];
+    cols.forEach(function (col) {
+      var title = col.querySelector(".ff-col-title").value;
+      var linkRows = col.querySelectorAll(".ff-links-list .gallery-editor__item");
+      var links = [];
+      linkRows.forEach(function (row) {
+        var label = row.querySelector(".ff-link-label").value.trim();
+        var href = row.querySelector(".ff-link-href").value.trim();
+        if (label) links.push({ label: label, href: href });
+      });
+      if (title) result.push({ title: title, links: links });
+    });
+    return result;
+  }
+
+  /* ---- Social links editor helpers ---- */
+  function buildSocialLinks(social) {
+    if (!social || !social.length) return "";
+    return social.map(function (s) {
+      return socialLinkRow(s);
+    }).join("");
+  }
+
+  function socialLinkRow(s) {
+    s = s || { icon: "instagram", href: "" };
+    var options = ["instagram", "facebook", "youtube"].map(function (ic) {
+      return '<option value="' + ic + '"' + (s.icon === ic ? " selected" : "") + ">" + ic + "</option>";
+    }).join("");
+    return (
+      '<div class="gallery-editor__item">' +
+        '<select class="ff-social-icon" style="width:120px;padding:8px;border:1px solid #d1d5db;border-radius:6px;font-size:0.85rem;">' + options + "</select>" +
+        '<input type="text" class="ff-social-href" value="' + esc(s.href || "") + '" placeholder="https://instagram.com/...">' +
+        '<button class="btn-remove-gallery" onclick="this.parentElement.remove()">Remove</button>' +
+      "</div>"
+    );
+  }
+
+  window.addSocialLink = function () {
+    var list = document.getElementById("ff-social-list");
+    var div = document.createElement("div");
+    div.innerHTML = socialLinkRow({ icon: "instagram", href: "" });
+    list.appendChild(div.firstChild);
+  };
+
+  function collectSocialLinks() {
+    var rows = document.querySelectorAll("#ff-social-list .gallery-editor__item");
+    var result = [];
+    rows.forEach(function (row) {
+      var icon = row.querySelector(".ff-social-icon").value;
+      var href = row.querySelector(".ff-social-href").value.trim();
+      if (href) result.push({ icon: icon, href: href });
+    });
+    return result;
+  }
+
+  window.saveFooter = function () {
+    var data = {
+      about: document.getElementById("ff-about").value,
+      copyright: document.getElementById("ff-copyright").value,
+      columns: collectFooterColumns(),
+      social: collectSocialLinks()
+    };
+
+    apiPut("/footer", data).then(function (res) {
+      footer = res;
+      toast("Footer saved! Refresh the website to see changes.");
+    }).catch(function () {
+      toast("Failed to save footer", true);
     });
   };
 

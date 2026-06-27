@@ -156,6 +156,23 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
+  // GET /api/footer — return footer data
+  if (resource === "footer" && method === "GET") {
+    const data = readData();
+    sendJSON(res, 200, data.footer || {});
+    return;
+  }
+
+  // PUT /api/footer — update footer data
+  if (resource === "footer" && method === "PUT") {
+    const body = await readBody(req);
+    const data = readData();
+    data.footer = body;
+    writeData(data);
+    sendJSON(res, 200, data.footer);
+    return;
+  }
+
   // GET /api/data — also allow POST for full update (used by admin "save all")
   if (resource === "data" && method === "PUT") {
     const body = await readBody(req);

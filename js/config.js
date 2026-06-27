@@ -321,15 +321,6 @@ const SITE_CONFIG = {
           { label: "Reviews",       href: "journal.html" },
         ],
       },
-      {
-        title: "Support",
-        links: [
-          { label: "FAQs",          href: "about.html" },
-          { label: "Booking Terms", href: "about.html" },
-          { label: "Travel Insurance", href: "about.html" },
-          { label: "Privacy Policy",href: "about.html" },
-        ],
-      },
     ],
     social: [
       { icon: "instagram", href: "https://www.instagram.com/voyatravel2019" },

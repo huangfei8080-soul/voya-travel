@@ -509,27 +509,6 @@
             "href": "journal.html"
           }
         ]
-      },
-      {
-        "title": "Support",
-        "links": [
-          {
-            "label": "FAQs",
-            "href": "about.html"
-          },
-          {
-            "label": "Booking Terms",
-            "href": "about.html"
-          },
-          {
-            "label": "Travel Insurance",
-            "href": "about.html"
-          },
-          {
-            "label": "Privacy Policy",
-            "href": "about.html"
-          }
-        ]
       }
     ],
     "social": [

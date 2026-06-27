@@ -106,10 +106,10 @@
 
     el.innerHTML =
       '<div class="navbar__inner">' +
-        '<a href="index.html" class="navbar__logo">' + logoHTML + "</a>" +
         '<nav class="navbar__menu" id="navMenu">' + links + "</nav>" +
-        '<div class="navbar__actions">' +
-          '<a href="products.html" class="btn btn--primary">Book Now</a>' +
+        '<div class="navbar__right">' +
+          '<a href="products.html" class="btn btn--primary navbar__book">Book Now</a>' +
+          '<a href="index.html" class="navbar__logo">' + logoHTML + "</a>" +
           '<button class="navbar__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>' +
         "</div>" +
       "</div>";
