@@ -4,7 +4,7 @@
     "logoText": "Voya Travel",
     "logoImage": "images/voya-logo.png",
     "tagline": "Group Travel That Hits Different",
-    "promoBarText": "Free cancellation on 2026 trips"
+    "promoBarText": ""
   },
   "nav": [
     {
@@ -308,75 +308,165 @@
       "category": "Asia",
       "gallery": [
         "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
-        "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80",
-        "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+        "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80",
+        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
       ],
       "itinerary": [
         {
           "day": 1,
-          "title": "Sydney – Guangzhou – Nanchang",
-          "desc": "Depart from Sydney, transit via Guangzhou. Overnight at transit hotel.",
-          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+          "title": "Day 1",
+          "desc": "10th Oct (Sat)   Nanchang – Yingtan Day trip in Nanchang city, visit Tengwang Pavilion, Wanshou Palace Historical Block, Shengjin Tower and Bada Shanren Memorial Hall. Transit to Yingtan in the evening. Hotel Breakfast / Dinner Yingtan Fontainebleau Hotel or equivalent __________________________________________________________________________________________",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 2,
-          "title": "Guangzhou – Nanchang",
-          "desc": "Free day in Guangzhou. Flight to Nanchang in the evening.",
-          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+          "title": "Day 2",
+          "desc": "11th Oct (Sun)   Yingtan – Gexian Fairy Village Visit Longhu Mountain (Dragon Tiger Mountain) Scenic Area in the morning. Check out the Shangqing Ancient Town and Tianshi Temple. Then transit to Gexian Fairy Village, a hidden sanctuary of Taoist culture. Explore the Lingbao Steet where tradition, artistry and local flavours come together and enjoy the beautiful night view. Hotel Breakfast / Lunch / Dinner Gexiancun Resort Zhenshansu Hotel or equivalent ___________________________________________",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 3,
-          "title": "Nanchang – Yingtan",
-          "desc": "Visit Tengwang Pavilion, Wanshou Palace Historical Block, Shengjin Tower, and Bada Shanren Memorial Hall.",
+          "title": "Day 3",
+          "desc": "12th Oct (Mon)   Gexian Fairy Village – Wangxian Valley - Shangrao Take cable car up to the Gexian Mountain in the morning, check out the Gexian Temple. Then transit to Wangxian Valley, wake a walk along the Qingyun Bridge, Xunxian Path and the Three Bays waterfalls. After enjoying the night view of the valley, transit to Shangrao. Hotel Breakfast / Dinner Shangrao Xinbang Hotel or equivalent __________________________________________________________________________________________",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 4,
-          "title": "Yingtan – Gexian Fairy Village",
-          "desc": "Visit Longhu Mountain Scenic Area, Shangqing Ancient Town, and Tianshi Temple. Explore Gexian Fairy Village.",
-          "image": "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+          "title": "Day 4",
+          "desc": "13th Oct (Tue)    Shangrao – Sanqing Mountain - Wuyuan --- Page 3 --- 3 / 7 travelTake cable car up to the Sanqing Mountain, a famous Daoist sacred place. Check out the Nanqing Park, West Coast and Sunshine Coast on the mountain. Then transit to Wuyuan for the Wunvzhou Scenic Area. Hotel Breakfast / Lunch / Dinner Wuyuan Xinbang Hotel or equivalent __________________________________________________________________________________________",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 5,
-          "title": "Gexian Fairy Village – Wangxian Valley – Shangrao",
-          "desc": "Cable car up Gexian Mountain, visit Gexian Temple. Explore Wangxian Valley.",
-          "image": "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+          "title": "Day 5",
+          "desc": "14th Oct (Wed)   Wuyuan – Jingdezhen Explore the Huangling Village in Wuyuan. Known for its terraced fields and picturesque village layout, Huangling is often referred to as “Terraced Cloud Homes” due to its stunning scenery. Check out the Shuhe Mansion and the Heavenly Street for a taste of its history. Then transit to Jingdezhen, the world-famous porcelain capital with a history dating back to Northen Song Dynasty for over 1000 years. Take a walk along the Taoxichuan Ceramic Art Avenue in the ",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 6,
-          "title": "Shangrao – Sanqing Mountain – Wuyuan",
-          "desc": "Cable car up Sanqing Mountain, visit Nanqing Park, West Coast, and Sunshine Coast.",
+          "title": "Day 6",
+          "desc": "15th Oct (Thu)   Jingdezhen Enjoy a full day at Jingdezhen. Visit Jingdezhen China Ceramics Museum in the morning to learn about the rich history of ceramics here for more than two millennia. Check out Taoyang Alley Historical and Cultural Tourism Area in the afternoon. Explore the ancient kiln cluster, the archaeological site of the imperial kiln factory and the Imperial Kiln Museum and experience the charm of this intangible cultural heritage up close. Hotel Breakfast /  Dinner  Grand Skylight",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 7,
-          "title": "Wuyuan – Jingdezhen",
-          "desc": "Explore Huangling Village in Wuyuan. Visit Jingdezhen, the porcelain capital.",
-          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+          "title": "Day 7",
+          "desc": "16th Oct (Fri)   Jingdezhen – Mt. Lu Transit to Mt. Lu in the morning for a day trip on the mountain. Check out the Flower Path, Brocade Valley, Sky Bridge, Hanpo Pass, Meilu Villa and overlooking the Five Old Men Peaks. Hotel Breakfast / Lunch / Dinner  Howard Johnson Hotel Lushan Jiahao Huaihai or equivalent __________________________________________________________________________________________ --- Page 4 --- 4 / 7 travel17th Oct (Sat)   Mt. Lu – Nanchang - Guiyang Coach transit back to Nan",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 8,
+          "title": "Day 8",
+          "desc": "18th Oct (Sun)   Guiyang – Huangguoshu - Anshun Visit Huangguoshu National Park today for a series of waterfalls with varied sizes and characteristics. Largest among all is Huangguoshu Waterfall, take shuttle bus and escalator to reach the Water-Curtain Cave inside the waterfall. Then check out the Yinlian Zhuitan Waterfall on the upper stream inside Tianxingqiao Scenic Area. Lastly, stop by the widest waterfall Doupotang Waterfall. Stay at hotel in Anshun tonight. Hotel Breakfast / Lunch / Dinn",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 9,
+          "title": "Day 9",
+          "desc": "19th Oct (Mon)   Anshun - Guiyang Take a boat ride into the Anshun Dragon Palace Cave in the morning. With its canyons, cliffs, streams and stone forests, it is one of the longest and most beautiful water caves in China. Return to Guiyang in the afternoon, check out some local icons including Jiaxiu Pavillion and Qingyun Market. Hotel Breakfast / Lunch  Hampton by Hilton Guiyang Nanming Xingye or equivalent _________________________________________________________________________________________",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 10,
+          "title": "Day 10",
+          "desc": "20th Oct (Tue)   Guiyang - Libo Coach transit to Libo in the morning for the Xiaoqikong (Seven Samll Arches) Scenic Area. The name originates from a seven-arch stone bridge that gracefully spans the Xiangshui River. This area seamlessly integrates mountains, water, forests, caves, lakes, and waterfalls, creating a picturesque and tranquil landscape. Take the shuttle bus and check out some of the must see spots including Wolong Pond, Cascade Waterfalls, Laya Waterfalls and Xiaoqikong Ancient Brid",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 11,
+          "title": "Day 11",
+          "desc": "22nd Oct (Thu)   Xijiang – Zhenyuan - Jiangkou Visit Zhenyuan Ancient Town and Qinglong Cave (Green Dragon Cave) ancient building complex in the morning. This is the biggest complex in Guizhou Province, a magnificent place combines Confucianism, Taoism, Buddhism, Municipal House, bridge and traditional architectural culture. Transit to Jiangkou in the evening. Hotel Breakfast / Lunch / Dinner Jiangkou Scholars Hotel or equivalent __________________________________________________________________",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 12,
+          "title": "Day 12",
+          "desc": "23rd Oct (Fri)    Jiangkou – Mt. Fanjing - Guiyang Explore the renowned Buddhist holy land Mt. Fanjing today. Take cable car up to the mountain top for the most famous Red Cloud Golden Summit and the Mushroom Rock. Return to Guiyang in the evening. Hotel Breakfast / Lunch Hampton by Hilton Guiyang Nanming Xingye or equivalent __________________________________________________________________________________________ Option A:  24th Oct (Sat)   Guiyang Departure – Guangzhou - Sydney Head to Guiyan",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 13,
+          "title": "Day 13",
+          "desc": "25th Oct (Sun)   Guilin – Longji - Guilin A day trip to Longji (Dragon Backbone) Rice Terrace, a breathtaking agricultural wonder nestled in Guilin’s remote mountainous region. Enjoy the overview of the largest terraced area Jinkeng Rice Terraces on cable car and overlooking the local Zhuang ethnic village. Return to Guilin downtown in the afternoon, take a walk around the Rong-shan Lake and the ancient South Gate for the beautiful night view. Hotel Breakfast / Lunch / Dinner Ramada by Wyndham G",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 14,
+          "title": "Day 14",
+          "desc": "26th Oct (Mon)   Guilin - Yangshuo Check out the local icons Xiangbi Hill (Elephant Trunk Hill) and Fobo Hill in Guilin in the morning. Coach transit to Yangshuo in the afternoon, visit the Shiwaitaoyuan (Land of Idyllic Beauty) Scenic Area developed based on the Peach Blossom Spring written by Tao Yuanming and the local landscape. Enjoy the renowned musical show Impression Liu Sanjie on the Li River about the Zhuang ethnic song fairy. At night, take a walk on the West Street for a taste of loca",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 15,
+          "title": "Day 15",
+          "desc": "27th Oct (Tue)   Yangshuo-Guilin Continue your trip in Yangshuo today. Take a river cruise along Li River, check out the Xingping ancient town for one of the best photographic locations in Guilin. Then explore the Silver Cave, the largest karst cave in the region. Also, enjoy the cormorant fishing practice for a taste of local fishermen’s wisdom. Back to Guilin in the afternoon.  Hotel Breakfast / Lunch Gr Ramada by Wyndham Guilin Hi-Tech Zone or equivalent ______________________________________",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 16,
+          "title": "Day 16",
+          "desc": "29th Oct (Thu)   Guangzhou - Sydney Head back to Guangzhou Baiyun International Airport in the early morning by hotel shuttle bus. Please arrive at Terminal 2 International Departure before 6:00am. Proceed to immigration and security check directly with the connecting flight boarding pass you get in Nanning the day before, no need to check in again in Guangzhou. Please refer to the airport screens and notice for latest boarding gate update. CZ301   Guangzhou/CAN (T2) – Sydney/SYD (T1)   08:00 – ",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 17,
+          "title": "Day 17",
+          "desc": "Day 17 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 18,
+          "title": "Day 18",
+          "desc": "Day 18 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 19,
+          "title": "Day 19",
+          "desc": "Day 19 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 20,
+          "title": "Day 20",
+          "desc": "Day 20 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 21,
+          "title": "Day 21",
+          "desc": "Day 21 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 22,
+          "title": "Day 22",
+          "desc": "Day 22 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         }
       ],
       "highlights": [
-        "22-day in-depth exploration of Jiangxi, Guizhou, and Guangxi",
-        "Visit Taoist sacred mountains: Gexian Mountain and Sanqing Mountain",
-        "Explore picturesque villages: Wuyuan Huangling, Wangxian Valley",
-        "Discover the porcelain capital: Jingdezhen",
-        "Experience stunning karst landscapes in Guizhou",
-        "Small group with expert local guides"
+        "22-day deep exploration of 3 provinces",
+        "Visit Taoist sacred mountains (Gexian Mountain, Mt. Lu)",
+        "Explore picturesque villages (Wuyuan Huangling)",
+        "Discover stunning karst landscapes (Mt. Fanjing, Xiaoqikong)",
+        "Experience vibrant ethnic cultures (Miao Village)",
+        "Small group: max 16 travelers"
       ],
       "included": [
+        "21 nights accommodation in 4-star hotels",
         "International and domestic flights with tax",
         "High-speed train tickets (second class)",
-        "4-star hotel accommodation with breakfast",
-        "Meals and entry tickets as per itinerary",
-        "Cable car and shuttle bus where specified",
+        "Daily breakfast and selected meals",
+        "All entrance fees shown in itinerary",
+        "Cable car and shuttle bus where mentioned",
         "Coach service",
-        "English-speaking guide"
+        "English speaking guide"
       ],
       "notIncluded": [
-        "Tips for guide and driver (AUD 250/person)",
+        "Tips for guide and driver (AUD 250/person, pay before departure)",
         "Travel insurance",
-        "Other meals not specified",
-        "Personal expenses"
+        "Other meals and personal expenses"
       ]
     },
     {
@@ -395,81 +485,159 @@
       "category": "Europe",
       "gallery": [
         "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
-        "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80",
-        "https://images.unsplash.com/photo-1467810563316-b547652d1325?w=800&q=80"
+        "https://images.unsplash.com/photo-1467269204594-872e5408460d?w=800&q=80",
+        "https://images.unsplash.com/photo-1502601294817-6ed1c6acb2ac?w=800&q=80"
       ],
       "itinerary": [
         {
           "day": 1,
-          "title": "Sydney – Guangzhou – Frankfurt",
-          "desc": "Depart from Sydney via Guangzhou. Transit hotel overnight in Guangzhou.",
-          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+          "title": "Day 1",
+          "desc": "31st Aug (Mon)   悉尼 – 廣州   Sydney - Guangzhou 上午自行前往悉尼國際機場辦理值機，搭乘中國南方航空航班經中國廣州前往德國法蘭克福。值機時，請同時領取2段聯程航班的登機牌，托運行李將直接抵達法蘭克福，在廣州中轉時無需領取。抵達廣州、辦理海關入境手續后，請直接前往本航站樓（T2）國内到達出口一樓50號門附近的南航中轉住宿櫃檯，辦理轉機酒店手續，並乘坐南航提供的接駁車前往轉機酒店休息。 *中國入境表格中，酒店地址一欄請填寫：廣州南航明珠大酒店。 Head to Sydney Kingsford Smith Airport early in the morning and check-in for your international flight to Frankfurt, Germany via Guangzhou, China. Make sure you get 2 boarding passes for both connecting flights, and your checked in luggage is transferred t",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 2,
-          "title": "Guangzhou – Frankfurt",
-          "desc": "Free day in Guangzhou. Evening flight to Frankfurt.",
-          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+          "title": "Day 2",
+          "desc": "1st Sep (Tue)   廣州 – 法蘭克福   Guangzhou - Frankfurt 今日于廣州自由活動，傍晚返回廣州白雲機場。請于晚上9:50前抵達機場，憑昨日領取的聯程航班登機牌直接過安檢及海關出境手續，無需再次辦理值機。安檢后，請于機場大屏再次確認前往德國法蘭克福的航班登機閘口。 Enjoy your free day in Guangzhou today and return to Guangzhou Baiyun International Airport Terminal 2 in the evening. Please arrive at the airport before 9:50pm and go for security check/immigration directly with the connecting flight boarding pass you get in Sydney, no need to check in again in Guangzhou. Please refer to the airport screens and ",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 3,
-          "title": "Frankfurt",
-          "desc": "Arrive in Frankfurt. City sightseeing: Frankfurt Cathedral, Römer, Eiserner Steg, Goethe University.",
-          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+          "title": "Day 3",
+          "desc": "2nd Sep (Wed)   法蘭克福   Frankfurt 行程 Itinerary：抵達法蘭克福，導遊接機。開始城市觀光。 Arrive in Frankfurt, meet your guide. Begin city sightseeing. 景點介紹 Attractions： 法蘭克福大教堂 (外觀) / Frankfurt Cathedral (Exterior)： 擁有600年歷史的皇帝加冕教堂，是法蘭克福的標誌性建築。 A 600-year-old imperial coronation church and a landmark of Frankfurt. 法蘭克福舊市政廳 (外觀) Römer (Old Town Hall, Exterior)： 位於羅馬貝格廣場，由三座精美的連體哥特式樓房構成，是城市的象徵。 Located on Römerberg square, consisting of three beautifully connected Gothic buildings, it is a symbol of the city. 鐵橋 (外觀) Ei",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 4,
-          "title": "Frankfurt – Rüdesheim – Koblenz",
-          "desc": "Full-day Rhine River cruise. Visit Rüdesheim, Lorelei Rock, and Deutsches Eck in Koblenz.",
-          "image": "https://images.unsplash.com/photo-1467810563316-b547652d1325?w=800&q=80"
+          "title": "Day 4",
+          "desc": "3rd Sep (Thu)   法蘭克福 – 呂德斯海姆 – 科佈倫茨 – 法蘭克福 Frankfurt – Rüdesheim – Koblenz – Frankfurt 行程  Itinerary： 全天遊覽萊茵河精華段。Full-day exploration of the Rhine River's most beautiful section. 上午前往「萊茵河珍珠」呂德斯海姆，漫步畫眉鳥小巷。Morning visit to Rüdesheim, the \"Pearl of the Rhine\", and a stroll down Drosselgasse lane. 下午搭乘萊茵河遊船，欣賞兩岸風光與蘿蕾萊岩石。之後前往科布倫茨，參觀兩河交匯處的德意志之角。 Afternoon Rhine River cruise, enjoying the scenery and the Lorelei Rock. Then proceed to Koblenz to see the Deutsches Eck (German Corner) at the confluence of",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 5,
-          "title": "Frankfurt – Heidelberg – Rothenburg – Stuttgart",
-          "desc": "Visit Heidelberg, then Rothenburg ob der Tauber. Evening arrival in Stuttgart.",
-          "image": "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80"
+          "title": "Day 5",
+          "desc": "4th Sep (Fri)   法蘭克福 – 海德堡 – 羅騰堡 – 斯圖加特 Frankfurt – Heidelberg – Rothenburg – Stuttgart 行程 Itinerary： 上午遊覽大學城海德堡，參觀海德堡老橋、海德堡大學廣場及遠觀山上的海德堡城堡。下午前往被譽為「中世紀之珠」的羅騰堡，遊覽市政廳、步雲萊和市集廣場。傍晚抵達汽車之城斯圖加特。 Morning visit to the university town of Heidelberg, seeing the Old Bridge, University Square, and viewing the Heidelberg Castle from afar. Afternoon trip to Rothenburg ob der Tauber, known as the \"Medieval Pearl\", visiting the Town Hall, Plönlein, and Market Square. Evening arrival in Stuttgart, the city of aut",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 6,
-          "title": "Stuttgart – Neuschwanstein – Munich",
-          "desc": "Visit Neuschwanstein Castle. Afternoon arrival in Munich.",
-          "image": "https://images.unsplash.com/photo-1467810563316-b547652d1325?w=800&q=80"
+          "title": "Day 6",
+          "desc": "5th Sep (Sat)   斯圖加特 – 新天鵝堡 – 慕尼黑 Stuttgart – Neuschwanstein Castle - Munich 行程 Itinerary： 上午驅車前往童話城堡——新天鵝堡入內參觀（如遇流量管制可能調整）。下午前往巴伐利亞首府慕尼黑。 Morning drive to the fairy-tale Neuschwanstein Castle for an interior visit (subject to change due to crowd control). Afternoon travel to Munich, the capital of Bavaria. 車程 Driving Distance： 約313公里。 Approximately 313 km. 住宿 Accommodation： 慕尼黑或周邊酒店。 Hotel in or around Munich. 餐飲 Meals： 早、午餐。 Breakfast, Lunch.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 7,
-          "title": "Munich – Plzen – Prague",
-          "desc": "Munich sightseeing: Marienplatz, New Town Hall. Stop at Plzen, then proceed to Prague.",
-          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+          "title": "Day 7",
+          "desc": "6th Sep (Sun)   慕尼黑 – 皮爾森 – 布拉格 Munich - Plzen - Prague 行程 Itinerary： 上午遊覽慕尼黑，參觀瑪利亞廣場、新市政廳及皇家啤酒館外觀。之後乘車途徑皮爾森小鎮，前往捷克首都布拉格。 Morning sightseeing in Munich, visiting Marienplatz, the New Town Hall, and the exterior of the Hofbräuhaus. Later, head to Prague, the capital of the Czech Republic by bus, and stop by the lovely town of Plzen on the way. 車程 Driving Distance： 約391公里。 Approximately 391 km. 住宿 Accommodation： 布拉格酒店。 Hotel in Prague. 餐飲 Meals： 早、晚餐。 Breakfast, Dinner.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 8,
+          "title": "Day 8",
+          "desc": "7th Sep (Mon)   布拉格深度游   Prague In-Depth Tour I 行程 Itinerary： 全天遊覽布拉格。 Full-day tour of Prague. 上午參觀布拉格城堡區，入內參觀聖維特大教堂和有趣的黃金巷。 Morning visit to Prague Castle complex, entering St. Vitus Cathedral and the interesting Golden Lane. 下午遊覽老城廣場，觀看天文鐘整點報時，並漫步穿越著名的查理大橋。 Afternoon exploration of Old Town Square, watching the Astronomical Clock chime on the hour, and walking across the famous Charles Bridge. 住宿 Accommodation： 布拉格酒店。 Hotel in Prague. 餐飲 Meals： 早、晚餐。 / Breakfast, Dinner.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 9,
+          "title": "Day 9",
+          "desc": "8th Sep (Tue)   布拉格深度游   Prague In-Depth Tour II 行程 Itinerary： 全天遊覽布拉格。 Full-day tour of Prague. 上午探索布拉格猶太區，參觀老猶太會堂和博物館。Morning exploration of Prague's Jewish Quarter, visiting the Old-New Synagogue and museums. 下午在瓦茨拉夫廣場及伏爾塔瓦河畔自由活動，享受購物與休閒時光。 Afternoon free time at Wenceslas Square and along the Vltava River for shopping and leisure. 住宿 Accommodation： 布拉格酒店。 Hotel in Prague. 餐飲 Meals： 早、午餐。 Breakfast, Lunch.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 10,
+          "title": "Day 10",
+          "desc": "9th Sep (Wed)   布拉格 – 克魯姆洛夫（CK小鎮）– 布傑約維採 (百威小鎮) Prague - Český Krumlov (CK Town) - České Budějovice (Budweis Town) 行程 Itinerary： 上午前往世界文化遺產克魯姆洛夫 (CK小鎮)，欣賞伏爾塔瓦河環繞的迷人景致，遠觀克魯姆洛夫城堡。下午抵達啤酒之鄉布傑約維採 (百威小鎮)。 Morning trip to the UNESCO World Heritage site Český Krumlov (CK Town), admiring the charming scenery surrounded by the Vltava River and viewing Český Krumlov Castle from outside. Afternoon arrival in České Budějovice (Budweis Town), the home of beer. 車程 Driving Distance： 約190公里。 Approximately 190 km",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 11,
+          "title": "Day 11",
+          "desc": "10th Sep (Thu)   布傑約維採 (百威小鎮) – 哈爾施塔特 – 湖區小鎮 České Budějovice (Budweis Town) – Hallstatt – Lake District Town 行程 Itinerary： 上午在百威小鎮參觀百威啤酒廠。隨後前往奧地利，遊覽被譽為「世界最美小鎮」的哈爾施塔特。傍晚入住湖區小鎮。 Morning visit to the Budweiser Budvar Brewery in Budweis. Then travel to Austria to visit Hallstatt, renowned as one of the world's most beautiful towns. Evening check-in at a town in the Lake District. 車程 Driving Distance： 約204公里。 Approximately 204 km. 住宿 Accommodation： 薩爾茨卡默古特湖區小鎮酒店。 Hotel in a town in the Salzkammergut",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 12,
+          "title": "Day 12",
+          "desc": "11th  Sep (Fri)   湖區小鎮 – 聖沃爾夫岡 – 薩爾斯堡 Lake District Town – St. Wolfgang - Salzburg 行程 Itinerary： 上午前往聖沃爾夫岡湖濱小鎮，體驗著名的沙夫山蒸汽火車，欣賞七湖全景。下午途徑月亮湖，隨後抵達音樂之聲的故鄉——薩爾茨堡。 Morning visit to the lakeside town of St. Wolfgang, experiencing the famous Schafbergbahn cog railway for panoramic views of seven lakes. Afternoon stop at Mondsee (Moon Lake), then arrival in Salzburg, the setting of The Sound of Music. 車程 Driving Distance： 約140公里。 Approximately 140 km. 住宿 Accommodation： 薩爾茨堡酒店。 Hotel in Salzburg. 餐飲 Meals",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 13,
+          "title": "Day 13",
+          "desc": "12th Sep (Sat)   薩爾斯堡 – 哈萊因鹽礦 - 國王湖 - 湖區小鎮 Salzburg - Hallein Salt Mine - Königssee - Lake District Town 行程 Itinerary： 上午參觀古老的哈萊因鹽礦，體驗礦工滑梯。下午前往德國，遊覽如仙境般的國王湖（乘船遊覽）。傍晚返回奧地利湖區小鎮入住。 Morning visit to the ancient Hallein Salt Mine, experiencing the miner's slide. Afternoon trip to Germany to visit the fairy-tale-like Königssee (King's Lake, boat tour included). Evening return to a town in the Austrian Lake District. 車程 Driving Distance： 約58公里。 Approximately 58 km. 住宿 Accommodation： 薩爾茨卡默古特湖區小鎮酒店。 Hote",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 14,
+          "title": "Day 14",
+          "desc": "13th Sep (Sun)   湖區小鎮 - 瓦豪河谷 - 維也納 Lake District Town - Wachau Valley - Vienna 行程 Itinerary： 全天遊覽世界文化遺產瓦豪河谷。上午參觀梅爾克修道院。隨後在梅爾克搭乘瓦豪河谷遊船，順流而下，欣賞葡萄園、古堡與小鎮風光，在杜恩斯坦下船觀光。之後驅車前往音樂之都維也納。 Full-day tour of the UNESCO World Heritage Wachau Valley. Morning visit to Melk Abbey. Then take a Wachau Valley cruise from Melk, sailing past vineyards, castles, and picturesque towns, disembarking at Dürnstein for sightseeing. Afterwards, drive to the music capital, Vienna. 車程 Driving Distance： 約307公里。 Approximately 3",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 15,
+          "title": "Day 15",
+          "desc": "14th Sep (Mon)   維也納深度游   Vienna In-Depth Tour 行程 Itinerary： 全天遊覽維也納。參觀城市公園內的施特勞斯雕像，外觀金色大廳和國家歌劇院。遊覽市中心的聖史蒂芬大教堂，並參觀充滿藝術想像的百水公寓。 Full-day sightseeing in Vienna. Visit Stadtpark (City Park) to see the Johann Strauss Monument. View the exterior of the Musikverein (Golden Hall) and the Vienna State Opera. Explore the central St. Stephen's Cathedral and visit the imaginative Hundertwasserhaus. 住宿 Accommodation： 維也納酒店。 Hotel in Vienna. 餐飲 Meals： 早、晚餐。 Breakfast, Dinner.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 16,
+          "title": "Day 16",
+          "desc": "15th Sep (Tue)   維也納 – 布拉迪斯拉發（斯洛伐克） Vienna – Bratislava (Slovakia) 行程 Itinerary： 上午參觀維也納的象徵——美泉宮及後花園（含講解）。下午前往斯洛伐克首都布拉迪斯拉發，遊覽老城區、大廣場、聖馬丁教堂，遠觀布拉迪斯拉發城堡和現代感十足的懸索大橋（飛碟橋）。 Morning visit to the symbol of Vienna, Schönbrunn Palace and its gardens (with audio guide). Afternoon drive to Bratislava, the capital of Slovakia. Explore the Old Town, Main Square, St. Martin's Cathedral, and view Bratislava Castle and the modern UFO Bridge from a distance. 車程 Driving Distance： 約80公里。 Approximately 80 km. 住宿 Acc",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 17,
+          "title": "Day 17",
+          "desc": "16th Sep (Wed)   布拉迪斯拉發（斯洛伐克）– 布达佩斯（匈牙利） Bratislava (Slovakia) – Budapest (Hungary) 行程 Itinerary： 上午驅車前往「多瑙河明珠」布達佩斯。下午開始城市觀光：參觀英雄廣場和城市公園，外觀宏偉的國會大廈和聖伊斯特萬大教堂。 Morning drive to Budapest, the \"Pearl of the Danube\". Begin afternoon city sightseeing: visit Heroes' Square and City Park, and view the magnificent Hungarian Parliament Building and St. Stephen's Basilica from outside. 車程 Driving Distance： 約200公里。 Approximately 200 km. 住宿 Accommodation： 布達佩斯酒店。 Hotel in Budapest. 餐飲 Meals： 早、晚餐。 Breakfast, ",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 18,
+          "title": "Day 18",
+          "desc": "17th Sep (Thu)   布达佩斯深度游   Budapest In-Depth Tour 行程 Itinerary： 全天遊覽布達佩斯。Full-day tour of Budapest. 上午登上漁人堡，俯瞰多瑙河與佩斯城全景，外觀馬加什教堂。Morning visit to Fisherman's Bastion for panoramic views of the Danube and Pest, and view Matthias Church from outside. 下午體驗多瑙河日間遊船，從河上欣賞兩岸風光，之後自由活動。Afternoon Daytime Danube River cruise to admire the cityscape from the water. Free time afterwards. 住宿 Accommodation： 布達佩斯酒店。 Hotel in Budapest. 餐飲 Meals： 早、午餐。 Breakfast, Lunch.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 19,
+          "title": "Day 19",
+          "desc": "18th Sep (Fri)   布达佩斯 – 多瑙河三小镇 – 布达佩斯 Budapest – Danube Bend Towns - Budapest 行程 Itinerary： 全天遊覽多瑙河灣三小鎮。Full-day excursion to three towns along the Danube Bend. 依次參觀：埃斯泰爾戈姆（參觀宏偉的聖母升天大教堂）、維謝格拉德（遠觀雲中城堡）、聖安德烈（藝術小鎮，自由漫步）。傍晚返回布達佩斯。 Visit in order: Esztergom (visit the grand Basilica of St. Adalbert), Visegrád (view the hilltop castle from afar), and Szentendre (artistic town, free stroll). Return to Budapest in the evening. 車程 Driving Distance： 總環線約133公里。 Total loop approximately 133 km. 住宿 Accommoda",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 20,
+          "title": "Day 20",
+          "desc": "19th Sep (Sat)   布达佩斯離開   Departing Budapest 早餐後前往布達佩斯機場，結束本次大城小鎮深度游。請根據您實際航班行程，經北京首都轉機前往香港、或直接返回廣州。感謝選擇Voya Travel！ Head to Budapest International Airport after breakfast. Please check in your flight according to your booking (either to Hong Kong via Beijing or to Guangzhou directly). Thank you for choosing Voya Travel! CA720   布達佩斯Budapest/BUD (T2B) – 北京首都Beijing Capital/PEK (T3)   [19/Sep] 13:00 – 04:10 (+1) CA101   北京首都Beijing Capital/PEK (T3) – 香港Hong Kong/HKG (T1)   [20/Sep] 08:05 – 11:50 ",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         }
       ],
       "highlights": [
-        "5 European countries: Germany, Austria, Czech Republic, Hungary, Slovakia",
-        "Rhine River cruise through the most scenic section",
-        "Neuschwanstein Castle - the fairy-tale castle",
-        "Prague - the City of a Hundred Spires",
-        "Medieval gems: Rothenburg, Cesky Krumlov",
-        "Expert tour leader throughout"
+        "5 countries in 16 days",
+        "Visit imperial cities (Vienna, Budapest, Prague)",
+        "Explore medieval towns and fairy-tale castles",
+        "Rhine River valley tour",
+        "Rhine River cruise",
+        "Small group: max 16 travelers"
       ],
       "included": [
-        "International flights with tax",
-        "4-star hotel accommodation with breakfast",
-        "Coach service",
-        "English-speaking guide and tour leader",
-        "Rhine River cruise",
-        "Entry tickets as per itinerary"
+        "15 nights accommodation in 3-4 star hotels",
+        "Daily breakfast and selected meals",
+        "All entrance fees to attractions",
+        "Expert Trip Manager throughout",
+        "All transport between destinations",
+        "Rhine River cruise"
       ],
       "notIncluded": [
-        "Tips for guide and driver",
+        "International flights",
         "Travel insurance",
-        "Some meals",
+        "Lunches and some dinners",
         "Personal expenses",
-        "Optional excursions"
+        "City taxes (pay at hotel)"
       ]
     },
     {
       "id": "guizhou-yunnan-17d",
       "title": "Guizhou & Yunnan Panorama 17 Days",
-      "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
+      "image": "https://images.unsplash.com/photo-1558431382-27e303142255?w=800&q=80",
       "badge": "hot",
       "rating": 4.7,
       "reviewCount": 62,
@@ -481,62 +649,134 @@
       "currency": "AUD",
       "category": "Asia",
       "gallery": [
+        "https://images.unsplash.com/photo-1558431382-27e303142255?w=800&q=80",
         "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
-        "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80",
-        "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+        "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
       ],
       "itinerary": [
         {
           "day": 1,
-          "title": "Sydney – Guangzhou – Guiyang",
-          "desc": "Depart from Sydney via Guangzhou. Arrive in Guiyang, transfer to hotel.",
-          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+          "title": "Day 1",
+          "desc": "Day 1 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 2,
-          "title": "Guiyang – Libo",
-          "desc": "Drive to Libo (~3.5hrs). Visit Xiaoqikong (Small Seven Arches) Scenic Area.",
+          "title": "Day 2",
+          "desc": "Day 2 itinerary details to be updated. Please check the detailed schedule.",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 3,
-          "title": "Libo – Guiyang",
-          "desc": "Visit Daqikong (Big Seven Arches). Return to Guiyang, visit Jiaxiu Tower and Qingyun Market.",
-          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+          "title": "Day 3",
+          "desc": "Day 3 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 4,
-          "title": "Guiyang – Zhijin Cave – Anshun",
-          "desc": "Visit Zhijin Cave, then proceed to Anshun. Visit Anshun Ancient Town.",
-          "image": "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+          "title": "Day 4",
+          "desc": "Day 4 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 5,
-          "title": "Anshun – Xingyi",
-          "desc": "Visit Dragon Palace and Tianlong Tunpu. Drive to Xingyi (~4hrs).",
+          "title": "Day 5",
+          "desc": "Day 5 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 6,
+          "title": "Day 6",
+          "desc": "Day 6 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 7,
+          "title": "Day 7",
+          "desc": "Day 7 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 8,
+          "title": "Day 8",
+          "desc": "Day 8 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 9,
+          "title": "Day 9",
+          "desc": "Day 9 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 10,
+          "title": "Day 10",
+          "desc": "Day 10 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 11,
+          "title": "Day 11",
+          "desc": "Day 11 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 12,
+          "title": "Day 12",
+          "desc": "Day 12 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 13,
+          "title": "Day 13",
+          "desc": "Day 13 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 14,
+          "title": "Day 14",
+          "desc": "Day 14 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 15,
+          "title": "Day 15",
+          "desc": "Day 15 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 16,
+          "title": "Day 16",
+          "desc": "Day 16 itinerary details to be updated. Please check the detailed schedule.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 17,
+          "title": "Day 17",
+          "desc": "Day 17 itinerary details to be updated. Please check the detailed schedule.",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         }
       ],
       "highlights": [
-        "17-day in-depth tour of Guizhou and Yunnan",
-        "Xiaoqikong - the Green Gem on Earth's Belt",
-        "Zhijin Cave - King of Chinese Karst Caves",
-        "Wanfenglin - Thousands of karst peaks",
-        "Maling River Gorge - The Most Beautiful Scar on Earth",
-        "Experience Buyi ethnic culture"
+        "17-day deep exploration of 2 provinces",
+        "Discover mystical karst caves",
+        "Experience vibrant ethnic cultures",
+        "Visit towering peaks and mirror-like lakes",
+        "Explore Stone Forest and Jiuxiang Caves",
+        "Small group: max 16 travelers"
       ],
       "included": [
-        "International and domestic flights with tax",
-        "4-star hotel accommodation with breakfast",
-        "Meals as per itinerary",
-        "Entry tickets and shuttle buses",
-        "Coach service",
-        "English-speaking guide"
+        "16 nights accommodation in 3-4 star hotels",
+        "Daily breakfast and selected meals",
+        "All entrance fees to scenic spots",
+        "Expert Trip Manager throughout",
+        "All transport between destinations"
       ],
       "notIncluded": [
-        "Tips for guide and driver",
+        "International flights",
         "Travel insurance",
-        "Some meals and personal expenses",
+        "Lunches and some dinners",
+        "Personal expenses",
         "Optional excursions"
       ]
     }
