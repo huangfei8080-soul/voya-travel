@@ -139,6 +139,23 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
+  // GET /api/hero — return hero banner data
+  if (resource === "hero" && method === "GET") {
+    const data = readData();
+    sendJSON(res, 200, data.hero || {});
+    return;
+  }
+
+  // PUT /api/hero — update hero banner data
+  if (resource === "hero" && method === "PUT") {
+    const body = await readBody(req);
+    const data = readData();
+    data.hero = Object.assign({}, data.hero || {}, body);
+    writeData(data);
+    sendJSON(res, 200, data.hero);
+    return;
+  }
+
   // GET /api/data — also allow POST for full update (used by admin "save all")
   if (resource === "data" && method === "PUT") {
     const body = await readBody(req);

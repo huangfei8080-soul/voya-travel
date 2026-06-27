@@ -12,6 +12,7 @@
   var promotions = [];
   var journal = [];
   var settings = {};
+  var hero = {};
 
   /* ---- Toast notification ---- */
   function toast(msg, isError) {
@@ -85,6 +86,7 @@
       promotions = data.promotions || [];
       journal = data.journal || [];
       settings = data.brand || {};
+      hero = data.hero || {};
       renderProducts();
       renderPromos();
       renderJournal();
@@ -633,9 +635,38 @@
     var el = document.getElementById("settings-form-container");
     if (!el) return;
     var b = settings || {};
+    var h = hero || {};
 
     el.innerHTML =
       '<div class="settings-form">' +
+        "<h3>Homepage Hero Banner</h3>" +
+        '<div class="form-row--full form-field" style="margin-bottom:16px;">' +
+          "<label>Hero Background Image</label>" +
+          '<div class="image-upload">' +
+            (h.image ? '<img src="' + h.image + '" id="hf-img-preview">' : '<img src="" id="hf-img-preview" style="display:none;">') +
+            '<input type="file" accept="image/*" id="hf-file" onchange="previewImage(this,\'hf-img-preview\')">' +
+            '<input type="text" class="url-input" id="hf-image-url" placeholder="or paste image URL" value="' + esc(h.image || "") + '">' +
+          "</div>" +
+        "</div>" +
+        '<div class="form-row" style="margin-bottom:16px;">' +
+          '<div class="form-field"><label>Badge Text (small label above title)</label><input type="text" id="hf-badge" value="' + esc(h.badge || "") + '" placeholder="e.g. 2026 Trips Now Available"></div>' +
+          '<div class="form-field"><label>Title</label><input type="text" id="hf-title" value="' + esc(h.title || "") + '"></div>' +
+        "</div>" +
+        '<div class="form-field" style="margin-bottom:16px;">' +
+          "<label>Subtitle</label>" +
+          '<input type="text" id="hf-subtitle" value="' + esc(h.subtitle || "") + '">' +
+        "</div>" +
+        '<div class="form-row" style="margin-bottom:16px;">' +
+          '<div class="form-field"><label>Primary Button Text</label><input type="text" id="hf-pbtn-text" value="' + esc((h.primaryBtn && h.primaryBtn.text) || "") + '"></div>' +
+          '<div class="form-field"><label>Primary Button Link</label><input type="text" id="hf-pbtn-href" value="' + esc((h.primaryBtn && h.primaryBtn.href) || "") + '"></div>' +
+        "</div>" +
+        '<div class="form-row" style="margin-bottom:16px;">' +
+          '<div class="form-field"><label>Secondary Button Text</label><input type="text" id="hf-sbtn-text" value="' + esc((h.secondaryBtn && h.secondaryBtn.text) || "") + '"></div>' +
+          '<div class="form-field"><label>Secondary Button Link</label><input type="text" id="hf-sbtn-href" value="' + esc((h.secondaryBtn && h.secondaryBtn.href) || "") + '"></div>' +
+        "</div>" +
+        '<div style="display:flex;gap:12px;margin-top:8px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #e5e7eb;">' +
+          '<button class="btn-save" onclick="saveHero()">Save Hero Banner</button>' +
+        "</div>" +
         "<h3>Promo Bar & Brand Settings</h3>" +
         '<div class="form-field" style="margin-bottom:16px;">' +
           "<label>Promo Bar Text (top yellow banner)</label>" +
@@ -659,6 +690,42 @@
         "</div>" +
       "</div>";
   }
+
+  window.saveHero = function () {
+    var fileInput = document.getElementById("hf-file");
+    var file = fileInput && fileInput.files[0];
+    var urlVal = document.getElementById("hf-image-url").value;
+
+    function doSave(imagePath) {
+      var data = {
+        image: imagePath || urlVal || "",
+        badge: document.getElementById("hf-badge").value,
+        title: document.getElementById("hf-title").value,
+        subtitle: document.getElementById("hf-subtitle").value,
+        primaryBtn: {
+          text: document.getElementById("hf-pbtn-text").value,
+          href: document.getElementById("hf-pbtn-href").value
+        },
+        secondaryBtn: {
+          text: document.getElementById("hf-sbtn-text").value,
+          href: document.getElementById("hf-sbtn-href").value
+        }
+      };
+
+      apiPut("/hero", data).then(function (res) {
+        hero = res;
+        toast("Hero banner saved! Refresh the website to see changes.");
+      }).catch(function () {
+        toast("Failed to save hero banner", true);
+      });
+    }
+
+    if (file) {
+      uploadImage(file, function (path) { doSave(path); });
+    } else {
+      doSave(null);
+    }
+  };
 
   window.saveSettings = function () {
     var data = {

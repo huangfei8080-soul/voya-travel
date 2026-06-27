@@ -301,7 +301,7 @@ const SITE_CONFIG = {
 
   /* ---- 11. FOOTER ---- */
   footer: {
-    about: "Voya Travel creates authentic group travel experiences for 18-35s across 60+ countries. Real adventures, real connections.",
+    about: "",
     columns: [
       {
         title: "Explore",
@@ -332,10 +332,7 @@ const SITE_CONFIG = {
       },
     ],
     social: [
-      { icon: "f", href: "#" },
-      { icon: "g", href: "#" },
-      { icon: "Y", href: "#" },
-      { icon: "in", href: "#" },
+      { icon: "instagram", href: "https://www.instagram.com/voyatravel2019" },
     ],
     copyright: "2026 Voya Travel. All rights reserved.",
   },
