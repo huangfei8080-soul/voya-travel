@@ -18,8 +18,27 @@ const IMG_DIR = path.join(ROOT, "images");
 const sessions = {};
 
 /* ---- Password ---- */
-// Set ADMIN_PASSWORD env var in Zeabur to override default
-const ADMIN_PWD = process.env.ADMIN_PASSWORD || "voya2024";
+// Password priority: data.json (brand.adminPassword) > env var > default
+function getAdminPassword() {
+  try {
+    const data = readData();
+    if (data && data.brand && data.brand.adminPassword) {
+      return data.brand.adminPassword;
+    }
+  } catch (e) {}
+  return process.env.ADMIN_PASSWORD || "voya2024";
+}
+
+function setAdminPassword(newPwd) {
+  const data = readData();
+  if (!data.brand) data.brand = {};
+  data.brand.adminPassword = newPwd;
+  writeData(data);
+}
+
+function verifyPassword(inputPwd) {
+  return inputPwd === getAdminPassword();
+}
 
 function generateSession() {
   const token = Math.random().toString(36).slice(2) + Date.now().toString(36);
@@ -139,11 +158,31 @@ async function handleAPI(req, res, method, segments) {
   // POST /api/login — authenticate
   if (resource === "login" && method === "POST") {
     const body = await readBody(req);
-    if (body.password === ADMIN_PWD) {
+    if (verifyPassword(body.password)) {
       const token = generateSession();
       sendJSON(res, 200, { success: true, token: token });
     } else {
       sendJSON(res, 401, { success: false, error: "密码错误 / Invalid password" });
+    }
+    return;
+  }
+
+  // POST /api/change-password — change admin password
+  if (resource === "change-password" && method === "POST") {
+    const body = await readBody(req);
+    if (!verifyPassword(body.currentPassword)) {
+      sendJSON(res, 401, { success: false, error: "Current password is incorrect" });
+      return;
+    }
+    if (!body.newPassword || body.newPassword.length < 4) {
+      sendJSON(res, 400, { success: false, error: "New password must be at least 4 characters" });
+      return;
+    }
+    try {
+      setAdminPassword(body.newPassword);
+      sendJSON(res, 200, { success: true, message: "Password changed successfully" });
+    } catch (e) {
+      sendJSON(res, 500, { success: false, error: "Failed to save password" });
     }
     return;
   }

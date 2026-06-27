@@ -1362,6 +1362,60 @@
   window.importData = importData;
 
   /* ============================================
+     CHANGE PASSWORD
+     ============================================ */
+  function changePassword() {
+    var current = document.getElementById("pwd-current").value;
+    var newPwd = document.getElementById("pwd-new").value;
+    var confirmPwd = document.getElementById("pwd-confirm").value;
+    var statusEl = document.getElementById("pwd-status");
+
+    if (!current || !newPwd || !confirmPwd) {
+      statusEl.style.color = "#dc2626";
+      statusEl.textContent = "❌ Please fill in all password fields.";
+      return;
+    }
+    if (newPwd !== confirmPwd) {
+      statusEl.style.color = "#dc2626";
+      statusEl.textContent = "❌ New passwords do not match.";
+      return;
+    }
+    if (newPwd.length < 4) {
+      statusEl.style.color = "#dc2626";
+      statusEl.textContent = "❌ New password must be at least 4 characters.";
+      return;
+    }
+
+    statusEl.style.color = "#6b7280";
+    statusEl.textContent = "Changing password...";
+
+    var sep = "/change-password".indexOf("?") >= 0 ? "&" : "?";
+    fetch(API + "/change-password" + sep + "token=" + encodeURIComponent(token), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ currentPassword: current, newPassword: newPwd })
+    }).then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res.success) {
+          statusEl.style.color = "#16a34a";
+          statusEl.textContent = "✅ Password changed successfully! Please login again with your new password.";
+          document.getElementById("pwd-current").value = "";
+          document.getElementById("pwd-new").value = "";
+          document.getElementById("pwd-confirm").value = "";
+          setTimeout(function () { logout(); }, 2000);
+        } else {
+          statusEl.style.color = "#dc2626";
+          statusEl.textContent = "❌ " + (res.error || "Failed to change password.");
+        }
+      }).catch(function () {
+        statusEl.style.color = "#dc2626";
+        statusEl.textContent = "❌ Server error. Please try again.";
+      });
+  }
+
+  window.changePassword = changePassword;
+
+  /* ============================================
      INIT
      ============================================ */
   checkSession();
