@@ -1,7 +1,7 @@
 /* ============================================
    Voya Travel - Backend Server
    Serves static files + REST API for
-   products, promotions, and journal.
+   products, promotions, journal, destinations.
    No external dependencies — pure Node.js.
    ============================================ */
 
@@ -76,7 +76,7 @@ function readData() {
     return JSON.parse(raw);
   } catch (e) {
     console.error("Error reading data.json:", e.message);
-    return { products: [], promotions: [], journal: [] };
+    return { products: [], promotions: [], journal: [], destinations: [] };
   }
 }
 
@@ -99,16 +99,12 @@ function genId(str) {
 function readBody(req) {
   return new Promise(function (resolve, reject) {
     let chunks = [];
-    req.on("data", function (c) {
-      chunks.push(c);
-    });
+    req.on("data", function (c) { chunks.push(c); });
     req.on("end", function () {
       try {
         const raw = Buffer.concat(chunks).toString("utf-8");
         resolve(raw ? JSON.parse(raw) : {});
-      } catch (e) {
-        reject(e);
-      }
+      } catch (e) { reject(e); }
     });
     req.on("error", reject);
   });
@@ -152,22 +148,75 @@ function serveStatic(req, res) {
 
 /* ---- API Router ---- */
 async function handleAPI(req, res, method, segments) {
-  // segments example: ["api", "products"] or ["api", "products", "greek-island-hopping"]
-  const resource = segments[1]; // products | promotions | journal | upload | data | login
+  const resource = segments[1];
+  const urlObj = new URL(req.url, `http://${req.headers.host}`);
+  const token = urlObj.searchParams.get("token");
+
+  /* ===== 1. PUBLIC endpoints (no auth required) ===== */
 
   // POST /api/login — authenticate
   if (resource === "login" && method === "POST") {
     const body = await readBody(req);
     if (verifyPassword(body.password)) {
-      const token = generateSession();
-      sendJSON(res, 200, { success: true, token: token });
+      const t = generateSession();
+      sendJSON(res, 200, { success: true, token: t });
     } else {
       sendJSON(res, 401, { success: false, error: "密码错误 / Invalid password" });
     }
     return;
   }
 
-  // POST /api/change-password — change admin password
+  // GET /api/verify — verify session token
+  if (resource === "verify" && method === "GET") {
+    sendJSON(res, 200, { valid: verifySession(token) });
+    return;
+  }
+
+  // GET /api/data — return everything (public read)
+  if (resource === "data" && method === "GET") {
+    sendJSON(res, 200, readData());
+    return;
+  }
+
+  // GET /api/settings — return brand settings (public read)
+  if (resource === "settings" && method === "GET") {
+    sendJSON(res, 200, readData().brand || {});
+    return;
+  }
+
+  // GET /api/hero — return hero banner data (public read)
+  if (resource === "hero" && method === "GET") {
+    sendJSON(res, 200, readData().hero || {});
+    return;
+  }
+
+  // GET /api/footer — return footer data (public read)
+  if (resource === "footer" && method === "GET") {
+    sendJSON(res, 200, readData().footer || {});
+    return;
+  }
+
+  // GET /api/about — return about page data (public read)
+  if (resource === "about" && method === "GET") {
+    sendJSON(res, 200, readData().about || {});
+    return;
+  }
+
+  // Collection GET (public read): /api/products, /api/promotions, etc.
+  if (["products","promotions","journal","destinations"].indexOf(resource) !== -1 && method === "GET" && !segments[2]) {
+    sendJSON(res, 200, (readData()[resource] || []));
+    return;
+  }
+
+  /* ===== 2. AUTH CHECK (required for all write operations) ===== */
+  if (!verifySession(token)) {
+    sendJSON(res, 401, { error: "Please login first" });
+    return;
+  }
+
+  /* ===== 3. WRITE endpoints (auth required) ===== */
+
+  // POST /api/change-password
   if (resource === "change-password" && method === "POST") {
     const body = await readBody(req);
     if (!verifyPassword(body.currentPassword)) {
@@ -187,29 +236,6 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // GET /api/verify — verify session token (no auth required)
-  if (resource === "verify" && method === "GET") {
-    const urlObj = new URL(req.url, `http://${req.headers.host}`);
-    const token = urlObj.searchParams.get("token");
-    sendJSON(res, 200, { valid: verifySession(token) });
-    return;
-  }
-
-  // Auth required for all other API endpoints
-  const urlObj = new URL(req.url, `http://${req.headers.host}`);
-  const token = urlObj.searchParams.get("token");
-  if (!verifySession(token)) {
-    sendJSON(res, 401, { error: "Please login first" });
-    return;
-  }
-
-  // GET /api/data — return everything
-  if (resource === "data" && method === "GET") {
-    const data = readData();
-    sendJSON(res, 200, data);
-    return;
-  }
-
   // POST /api/import — import full data.json (backup restore)
   if (resource === "import" && method === "POST") {
     try {
@@ -226,14 +252,7 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // GET /api/settings — return brand settings
-  if (resource === "settings" && method === "GET") {
-    const data = readData();
-    sendJSON(res, 200, data.brand || {});
-    return;
-  }
-
-  // PUT /api/settings — update brand settings
+  // PUT /api/settings
   if (resource === "settings" && method === "PUT") {
     const body = await readBody(req);
     const data = readData();
@@ -243,14 +262,7 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // GET /api/hero — return hero banner data
-  if (resource === "hero" && method === "GET") {
-    const data = readData();
-    sendJSON(res, 200, data.hero || {});
-    return;
-  }
-
-  // PUT /api/hero — update hero banner data
+  // PUT /api/hero
   if (resource === "hero" && method === "PUT") {
     const body = await readBody(req);
     const data = readData();
@@ -260,14 +272,7 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // GET /api/footer — return footer data
-  if (resource === "footer" && method === "GET") {
-    const data = readData();
-    sendJSON(res, 200, data.footer || {});
-    return;
-  }
-
-  // PUT /api/footer — update footer data
+  // PUT /api/footer
   if (resource === "footer" && method === "PUT") {
     const body = await readBody(req);
     const data = readData();
@@ -277,14 +282,7 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // GET /api/about — return about page data
-  if (resource === "about" && method === "GET") {
-    const data = readData();
-    sendJSON(res, 200, data.about || {});
-    return;
-  }
-
-  // PUT /api/about — update about page data
+  // PUT /api/about
   if (resource === "about" && method === "PUT") {
     const body = await readBody(req);
     const data = readData();
@@ -294,7 +292,7 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // GET /api/data — also allow POST for full update (used by admin "save all")
+  // PUT /api/data — full data replacement
   if (resource === "data" && method === "PUT") {
     const body = await readBody(req);
     writeData(body);
@@ -302,15 +300,13 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // POST /api/upload — save base64 image, return path
+  // POST /api/upload — save base64 image
   if (resource === "upload" && method === "POST") {
     const body = await readBody(req);
-    // body: { name: "photo.jpg", data: "data:image/png;base64,...." }
     if (!body.data || !body.name) {
       sendJSON(res, 400, { error: "Missing name or data" });
       return;
     }
-    // Extract base64 part
     const match = body.data.match(/^data:image\/(\w+);base64,(.+)$/);
     if (!match) {
       sendJSON(res, 400, { error: "Invalid image data" });
@@ -325,18 +321,12 @@ async function handleAPI(req, res, method, segments) {
     return;
   }
 
-  // Collection-level operations: products, promotions, journal
-  if (["products", "promotions", "journal", "destinations"].indexOf(resource) !== -1) {
+  // Collection write operations: products, promotions, journal, destinations
+  if (["products","promotions","journal","destinations"].indexOf(resource) !== -1) {
     const data = readData();
-    const collection = data[resource] || [];
+    let collection = data[resource] || [];
 
-    // GET /api/{resource} — list all
-    if (method === "GET" && !segments[2]) {
-      sendJSON(res, 200, collection);
-      return;
-    }
-
-    // POST /api/{resource} — add new item
+    // POST — add new item
     if (method === "POST" && !segments[2]) {
       const body = await readBody(req);
       if (!body.id) body.id = genId(body.title || body.name || "item");
@@ -347,21 +337,15 @@ async function handleAPI(req, res, method, segments) {
       return;
     }
 
-    // Item-level operations: /api/{resource}/{id}
+    // Item-level: PUT (update) or DELETE
     const itemId = segments[2];
     if (itemId) {
-      const index = collection.findIndex(function (item) {
-        return item.id === itemId;
-      });
+      const index = collection.findIndex(function (item) { return item.id === itemId; });
 
-      // PUT /api/{resource}/{id} — update item
       if (method === "PUT") {
+        if (index === -1) { sendJSON(res, 404, { error: "Not found" }); return; }
         const body = await readBody(req);
-        if (index === -1) {
-          sendJSON(res, 404, { error: "Not found" });
-          return;
-        }
-        body.id = itemId; // preserve ID
+        body.id = itemId;
         collection[index] = Object.assign({}, collection[index], body);
         data[resource] = collection;
         writeData(data);
@@ -369,12 +353,8 @@ async function handleAPI(req, res, method, segments) {
         return;
       }
 
-      // DELETE /api/{resource}/{id} — delete item
       if (method === "DELETE") {
-        if (index === -1) {
-          sendJSON(res, 404, { error: "Not found" });
-          return;
-        }
+        if (index === -1) { sendJSON(res, 404, { error: "Not found" }); return; }
         collection.splice(index, 1);
         data[resource] = collection;
         writeData(data);
