@@ -1,0 +1,434 @@
+{
+  "brand": {
+    "name": "Voya Travel",
+    "logoText": "Voya Travel",
+    "logoImage": "images/voya-logo.png",
+    "tagline": "Group Travel That Hits Different",
+    "promoBarText": "Free cancellation on 2026 trips up to 30 days before departure*"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "index.html"
+    },
+    {
+      "label": "Latest Trips",
+      "href": "products.html"
+    },
+    {
+      "label": "Deals",
+      "href": "promotions.html"
+    },
+    {
+      "label": "Travel Journal",
+      "href": "journal.html"
+    },
+    {
+      "label": "About Us",
+      "href": "about.html"
+    }
+  ],
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80",
+    "badge": "2026 Trips Now Available",
+    "title": "Travel That Hits Different",
+    "subtitle": "Small group adventures for 18-35s. Real experiences, real connections, real unforgettable moments.",
+    "primaryBtn": {
+      "text": "Explore Trips",
+      "href": "products.html"
+    },
+    "secondaryBtn": {
+      "text": "View Deals",
+      "href": "promotions.html"
+    }
+  },
+  "destinations": [
+    {
+      "name": "Japan",
+      "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80"
+    },
+    {
+      "name": "Greece",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80"
+    },
+    {
+      "name": "Vietnam",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?w=600&q=80"
+    },
+    {
+      "name": "Italy",
+      "image": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80"
+    },
+    {
+      "name": "Morocco",
+      "image": "https://images.unsplash.com/photo-1539020140153-e479b8c5b246?w=600&q=80"
+    },
+    {
+      "name": "Spain",
+      "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&q=80"
+    },
+    {
+      "name": "Peru",
+      "image": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80"
+    },
+    {
+      "name": "Iceland",
+      "image": "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&q=80"
+    }
+  ],
+  "products": [
+    {
+      "id": "greek-island-hopping",
+      "title": "Greek Island Hopping",
+      "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80",
+      "badge": "popular",
+      "rating": 4.7,
+      "reviewCount": 320,
+      "desc": "Sun-soaked days. Aegean nights. Island hop through Mykonos, Paros, Santorini and Ios.",
+      "days": 11,
+      "places": 5,
+      "countries": 1,
+      "priceFrom": 2545,
+      "currency": "$",
+      "category": "Europe"
+    },
+    {
+      "id": "thai-island-hopper",
+      "title": "Thai Island Hopper West",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
+      "badge": "hot",
+      "rating": 4.6,
+      "reviewCount": 280,
+      "desc": "Emerald bays. Andaman sunsets. Island hopping Thailand's west through Phuket, Phi Phi and Krabi.",
+      "days": 8,
+      "places": 3,
+      "countries": 1,
+      "priceFrom": 1094,
+      "currency": "$",
+      "category": "Asia"
+    },
+    {
+      "id": "japan-express",
+      "title": "Japan Express",
+      "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80",
+      "badge": "new",
+      "rating": 4.8,
+      "reviewCount": 145,
+      "desc": "From Tokyo's neon streets to Kyoto's ancient temples. Bullet trains, sushi, and cherry blossoms.",
+      "days": 10,
+      "places": 6,
+      "countries": 1,
+      "priceFrom": 3299,
+      "currency": "$",
+      "category": "Asia"
+    },
+    {
+      "id": "morocco-discovery",
+      "title": "Morocco Discovery",
+      "image": "https://images.unsplash.com/photo-1539020140153-e479b8c5b246?w=800&q=80",
+      "badge": "popular",
+      "rating": 4.5,
+      "reviewCount": 190,
+      "desc": "Blue-walled Chefchaouen, Sahara camel treks, Marrakech souks. A sensory overload.",
+      "days": 12,
+      "places": 7,
+      "countries": 1,
+      "priceFrom": 1899,
+      "currency": "$",
+      "category": "Africa"
+    },
+    {
+      "id": "italy-express",
+      "title": "Italy Express",
+      "image": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=800&q=80",
+      "badge": "",
+      "rating": 4.7,
+      "reviewCount": 410,
+      "desc": "Rome's ruins, Florence's art, Venice's canals, Amalfi's cliffs. La dolce vita in 9 days.",
+      "days": 9,
+      "places": 5,
+      "countries": 1,
+      "priceFrom": 2199,
+      "currency": "$",
+      "category": "Europe"
+    },
+    {
+      "id": "peru-explorer",
+      "title": "Peru Explorer",
+      "image": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80",
+      "badge": "new",
+      "rating": 4.9,
+      "reviewCount": 88,
+      "desc": "Machu Picchu at sunrise, Sacred Valley treks, Lima food tours, Lake Titicaca homestays.",
+      "days": 11,
+      "places": 6,
+      "countries": 1,
+      "priceFrom": 2799,
+      "currency": "$",
+      "category": "South America"
+    }
+  ],
+  "promotions": [
+    {
+      "id": "nz-sweet-as-south",
+      "title": "New Zealand: Sweet As South",
+      "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
+      "badge": "save",
+      "saveAmount": 832,
+      "rating": 4.8,
+      "reviewCount": 210,
+      "desc": "Big nature energy and unmissable moments across New Zealand's South Island.",
+      "days": 9,
+      "places": 13,
+      "countries": 1,
+      "originalPrice": 2750,
+      "priceFrom": 2003,
+      "currency": "$",
+      "category": "Oceania",
+      "dealExpiry": "2026-08-31"
+    },
+    {
+      "id": "european-discovery-sale",
+      "title": "European Discovery",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
+      "badge": "save",
+      "saveAmount": 550,
+      "rating": 4.6,
+      "reviewCount": 520,
+      "desc": "14 countries in 28 days. The ultimate European road trip for the bold and curious.",
+      "days": 28,
+      "places": 20,
+      "countries": 14,
+      "originalPrice": 4999,
+      "priceFrom": 4449,
+      "currency": "$",
+      "category": "Europe",
+      "dealExpiry": "2026-07-15"
+    },
+    {
+      "id": "vietnam-adventure-sale",
+      "title": "Vietnam Adventure",
+      "image": "https://images.unsplash.com/photo-1509030450996-dd1a26dda341?w=800&q=80",
+      "badge": "hot",
+      "saveAmount": 420,
+      "rating": 4.7,
+      "reviewCount": 165,
+      "desc": "Hanoi street food, Halong Bay cruises, Hoi An lanterns, Mekong Delta boats.",
+      "days": 13,
+      "places": 8,
+      "countries": 1,
+      "originalPrice": 2199,
+      "priceFrom": 1779,
+      "currency": "$",
+      "category": "Asia",
+      "dealExpiry": "2026-09-30"
+    }
+  ],
+  "journal": [
+    {
+      "id": "post-1",
+      "title": "5 Reasons Why Japan Should Be Your 2026 Trip",
+      "image": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
+      "category": "Inspiration",
+      "excerpt": "From cherry blossoms to bullet trains, here's why Japan is the ultimate destination for young travelers.",
+      "author": "Sarah Chen",
+      "date": "2026-06-15",
+      "readTime": "5 min"
+    },
+    {
+      "id": "post-2",
+      "title": "How to Pack Light for a 2-Week European Trip",
+      "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80",
+      "category": "Tips & Guides",
+      "excerpt": "The ultimate carry-on only packing guide. What to bring, what to leave, and how to look good doing it.",
+      "author": "Mike Johnson",
+      "date": "2026-06-10",
+      "readTime": "7 min"
+    },
+    {
+      "id": "post-3",
+      "title": "A Day in the Life: Moroccan Souk Adventure",
+      "image": "https://images.unsplash.com/photo-1597212720158-e21f9b1a4c76?w=800&q=80",
+      "category": "Stories",
+      "excerpt": "Spice markets, snake charmers, and the best tagine of your life. A firsthand account from Marrakech.",
+      "author": "Emma Wilson",
+      "date": "2026-06-05",
+      "readTime": "6 min"
+    },
+    {
+      "id": "post-4",
+      "title": "Budget Travel Hacks: Southeast Asia Edition",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?w=800&q=80",
+      "category": "Tips & Guides",
+      "excerpt": "How to travel Thailand, Vietnam, and Cambodia on $30 a day without missing the highlights.",
+      "author": "James Lee",
+      "date": "2026-05-28",
+      "readTime": "8 min"
+    }
+  ],
+  "featureBanner": {
+    "title": "Lock in your spot with a $200 deposit",
+    "subtitle": "Pay monthly or bi-weekly. Interest-free payment plans available on all trips.",
+    "btnText": "Learn More",
+    "btnHref": "about.html"
+  },
+  "stats": [
+    {
+      "number": "50K+",
+      "label": "Happy Travelers"
+    },
+    {
+      "number": "120+",
+      "label": "Trips Worldwide"
+    },
+    {
+      "number": "60+",
+      "label": "Countries"
+    },
+    {
+      "number": "4.7",
+      "label": "Average Rating"
+    }
+  ],
+  "about": {
+    "heroImage": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80",
+    "heroTitle": "We Make Travel That Matters",
+    "heroSubtitle": "Since 2010, we've helped over 50,000 young travelers discover the world in a way that's authentic, affordable, and unforgettable.",
+    "storyTitle": "Our Story",
+    "storyImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+    "storyText": [
+      "Voya Travel started with a simple idea: travel should be about real experiences, not just ticking off tourist traps. What began as a handful of friends organizing trips has grown into a global community of young adventurers.",
+      "Today, we run trips across 60+ countries, but our mission hasn't changed. We believe the best travel moments happen when you step outside your comfort zone, connect with locals, and share the journey with like-minded people."
+    ],
+    "missionTitle": "Our Mission",
+    "missionImage": "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=80",
+    "missionText": [
+      "To create travel experiences that are authentic, sustainable, and accessible to everyone aged 18-35. We're not just selling trips - we're creating the stories you'll tell for the rest of your life.",
+      "Every itinerary is designed by people who've been there. Every guide is a local who calls the destination home. Every group is small enough to feel like friends, big enough to feel like a party."
+    ],
+    "valuesTitle": "What We Stand For",
+    "values": [
+      {
+        "icon": "W",
+        "title": "Authentic Experiences",
+        "desc": "No tourist traps. We take you where the locals go, eat what the locals eat, and live like the locals live."
+      },
+      {
+        "icon": "S",
+        "title": "Sustainable Travel",
+        "desc": "We offset our carbon footprint, support local businesses, and leave every place better than we found it."
+      },
+      {
+        "icon": "C",
+        "title": "Community First",
+        "desc": "Small groups, real connections. You'll leave with 15 new friends from 10 different countries."
+      }
+    ],
+    "statsTitle": "Our Numbers",
+    "aboutStats": [
+      {
+        "number": "50K+",
+        "label": "Happy Travelers"
+      },
+      {
+        "number": "120+",
+        "label": "Trips Worldwide"
+      },
+      {
+        "number": "60+",
+        "label": "Countries"
+      },
+      {
+        "number": "4.7",
+        "label": "Average Rating"
+      }
+    ]
+  },
+  "footer": {
+    "about": "Voya Travel creates authentic group travel experiences for 18-35s across 60+ countries. Real adventures, real connections.",
+    "columns": [
+      {
+        "title": "Explore",
+        "links": [
+          {
+            "label": "All Trips",
+            "href": "products.html"
+          },
+          {
+            "label": "Deals",
+            "href": "promotions.html"
+          },
+          {
+            "label": "Destinations",
+            "href": "products.html"
+          },
+          {
+            "label": "Travel Journal",
+            "href": "journal.html"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About Us",
+            "href": "about.html"
+          },
+          {
+            "label": "Contact",
+            "href": "about.html"
+          },
+          {
+            "label": "Careers",
+            "href": "about.html"
+          },
+          {
+            "label": "Reviews",
+            "href": "journal.html"
+          }
+        ]
+      },
+      {
+        "title": "Support",
+        "links": [
+          {
+            "label": "FAQs",
+            "href": "about.html"
+          },
+          {
+            "label": "Booking Terms",
+            "href": "about.html"
+          },
+          {
+            "label": "Travel Insurance",
+            "href": "about.html"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "about.html"
+          }
+        ]
+      }
+    ],
+    "social": [
+      {
+        "icon": "f",
+        "href": "#"
+      },
+      {
+        "icon": "g",
+        "href": "#"
+      },
+      {
+        "icon": "Y",
+        "href": "#"
+      },
+      {
+        "icon": "in",
+        "href": "#"
+      }
+    ],
+    "copyright": "2026 Voya Travel. All rights reserved."
+  }
+}

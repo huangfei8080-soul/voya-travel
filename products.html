@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Trips - Voya Travel</title>
+  <meta name="description" content="Browse all our latest group travel adventures across 60+ countries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="promo-bar" id="promo-bar"></div>
+  <header class="navbar" id="navbar"></header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Latest Trips</h1>
+      <p>Authentic group adventures across 60+ countries</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div id="products-grid"></div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="newsletter">
+        <h2>Never Miss a New Trip</h2>
+        <p>Subscribe to get notified when we launch new adventures.</p>
+        <form class="newsletter__form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+          <input type="email" class="newsletter__input" placeholder="Your email address" required>
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

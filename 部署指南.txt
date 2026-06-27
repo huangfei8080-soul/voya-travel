@@ -1,0 +1,89 @@
+============================================
+  Voya Travel - Zeabur 部署指南
+============================================
+
+【已完成】代码修复：
+  ✅ package.json 已创建（Zeabur 靠这个识别项目）
+  ✅ server.js 端口已改为 process.env.PORT || 3000
+  ✅ .gitignore 已创建
+
+
+============================================
+第一步：创建 GitHub 仓库
+============================================
+
+1. 打开 https://github.com → 登录
+2. 点右上角 "+" → New repository
+3. Repository name 填: voya-travel
+4. 选 Public（公开）
+5. 不要勾选 "Add a README file"
+6. 点击 Create repository
+
+
+============================================
+第二步：推送代码到 GitHub
+============================================
+
+打开你 Mac 的终端（Terminal），复制粘贴以下命令：
+
+cd /Users/soulhuang/WorkBuddy/2026-06-27-12-58-16/travel-website
+
+git init
+git add .
+git commit -m "Voya Travel website"
+git branch -M main
+git remote add origin https://github.com/你的用户名/voya-travel.git
+git push -u origin main
+
+注意：把 "你的用户名" 换成你的 GitHub 用户名！
+
+如果提示要登录，按提示输入 GitHub 用户名和 Personal Access Token。
+
+
+============================================
+第三步：在 Zeabur 部署
+============================================
+
+1. 打开 https://dash.zeabur.com
+2. 点击 New Project，起名 voya-travel，创建
+3. 进入项目后，点击 Add Service → GitHub
+4. 第一次会提示授权 GitHub，点Authorize
+5. 搜索框输入 voya-travel，选中你的仓库
+6. 点击 Deploy
+7. 等待 1-2 分钟自动构建完成
+
+
+============================================
+第四步：绑定域名
+============================================
+
+1. 部署完成后，进入服务的 Domains 标签
+2. 可以先用免费的 xxx.zeabur.app 域名测试
+3. 要绑自己的域名：
+   - 点 Add Domain → 输入你的域名
+   - 按提示去域名 DNS 添加 CNAME 记录
+   - Zeabur 自动配置 HTTPS 证书
+
+
+============================================
+验证
+============================================
+
+网站地址:  https://你的域名/
+后台地址:  https://你的域名/admin.html
+API地址:   https://你的域名/api/data
+
+
+============================================
+注意事项
+============================================
+
+1. data/data.json 存储所有产品/促销/文章数据
+   Zeabur 容器重启后数据会重置为初始状态
+   如需持久化，后续可以在 Zeabur 添加 Volume 挂载
+
+2. 上传的图片存在 images/ 目录
+   同样会在容器重启后丢失
+   建议后续接入对象存储（如阿里云 OSS）
+
+3. 本地测试命令: npm start 或 node server.js
