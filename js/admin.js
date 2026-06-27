@@ -1,13 +1,15 @@
 /* ============================================
    Voya Travel - Admin Panel Logic
    Handles CRUD operations for products,
-   promotions, and journal entries via API.
+   promotions, journal entries via API.
+   Password protected.
    ============================================ */
 
 (function () {
   "use strict";
 
   var API = "/api";
+  var token = localStorage.getItem("voya_admin_token") || null;
   var products = [];
   var promotions = [];
   var destinations = [];
@@ -17,6 +19,67 @@
   var footer = {};
   var about = {};
 
+  /* ---- Login ---- */
+  window.doLogin = function () {
+    var pwd = document.getElementById("login-password").value;
+    if (!pwd) return false;
+    fetch(API + "/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: pwd })
+    }).then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res.success) {
+          token = res.token;
+          localStorage.setItem("voya_admin_token", token);
+          showAdmin();
+        } else {
+          var errEl = document.getElementById("login-error");
+          errEl.textContent = res.error || "Password incorrect";
+          errEl.style.display = "block";
+        }
+      }).catch(function () {
+        var errEl = document.getElementById("login-error");
+        errEl.textContent = "Cannot connect to server";
+        errEl.style.display = "block";
+      });
+    return false;
+  };
+
+  function showAdmin() {
+    document.getElementById("login-screen").style.display = "none";
+    loadAll();
+  }
+
+  function logout() {
+    token = null;
+    localStorage.removeItem("voya_admin_token");
+    location.reload();
+  }
+
+  /* ---- Check existing session on load ---- */
+  function checkSession() {
+    if (!token) {
+      // Show login screen, hide admin content
+      document.getElementById("login-screen").style.display = "flex";
+      return;
+    }
+    fetch(API + "/verify?token=" + encodeURIComponent(token))
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res.valid) {
+          showAdmin();
+        } else {
+          token = null;
+          localStorage.removeItem("voya_admin_token");
+          document.getElementById("login-screen").style.display = "flex";
+        }
+      }).catch(function () {
+        // Server not reachable, still show login
+        document.getElementById("login-screen").style.display = "flex";
+      });
+  }
+
   /* ---- Toast notification ---- */
   function toast(msg, isError) {
     var el = document.getElementById("toast");
@@ -25,26 +88,33 @@
     setTimeout(function () { el.className = "toast"; }, 3000);
   }
 
-  /* ---- API helpers ---- */
+  /* ---- API helpers (with token) ---- */
   function apiGet(path) {
-    return fetch(API + path).then(function (r) { return r.json(); });
+    var sep = path.indexOf("?") >= 0 ? "&" : "?";
+    return fetch(API + path + sep + "token=" + encodeURIComponent(token))
+      .then(function (r) { return r.json(); });
   }
   function apiPost(path, body) {
-    return fetch(API + path, {
+    var sep = path.indexOf("?") >= 0 ? "&" : "?";
+    return fetch(API + path + sep + "token=" + encodeURIComponent(token), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     }).then(function (r) { return r.json(); });
   }
   function apiPut(path, body) {
-    return fetch(API + path, {
+    var sep = path.indexOf("?") >= 0 ? "&" : "?";
+    return fetch(API + path + sep + "token=" + encodeURIComponent(token), {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     }).then(function (r) { return r.json(); });
   }
   function apiDelete(path) {
-    return fetch(API + path, { method: "DELETE" }).then(function (r) { return r.json(); });
+    var sep = path.indexOf("?") >= 0 ? "&" : "?";
+    return fetch(API + path + sep + "token=" + encodeURIComponent(token), {
+      method: "DELETE"
+    }).then(function (r) { return r.json(); });
   }
 
   /* ---- Image upload (base64 to server) ---- */
@@ -52,12 +122,18 @@
     if (!file) { callback(null); return; }
     var reader = new FileReader();
     reader.onload = function (e) {
-      apiPost("/upload", { name: file.name, data: e.target.result }).then(function (res) {
-        callback(res.path || null);
-      }).catch(function () {
-        toast("Image upload failed", true);
-        callback(null);
-      });
+      var sep = ("/api/upload").indexOf("?") >= 0 ? "&" : "?";
+      fetch(API + "/upload" + sep + "token=" + encodeURIComponent(token), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: file.name, data: e.target.result })
+      }).then(function (r) { return r.json(); })
+        .then(function (res) {
+          callback(res.path || null);
+        }).catch(function () {
+          toast("Image upload failed", true);
+          callback(null);
+        });
     };
     reader.readAsDataURL(file);
   }
@@ -1217,9 +1293,12 @@
     trySave();
   };
 
+  /* ---- Expose logout to global ---- */
+  window.adminLogout = logout;
+
   /* ============================================
      INIT
      ============================================ */
-  loadAll();
+  checkSession();
 
 })();

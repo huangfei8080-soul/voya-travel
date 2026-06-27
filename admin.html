@@ -318,13 +318,70 @@
 </head>
 <body>
 
+  <!-- Login Screen -->
+  <div id="login-screen" style="
+    position: fixed; inset: 0; z-index: 99999;
+    background: linear-gradient(135deg, #0B9BAE 0%, #083D45 100%);
+    display: flex; align-items: center; justify-content: center;
+  ">
+    <div style="
+      background: #fff; border-radius: 16px;
+      padding: 48px 40px; width: 400px; max-width: 90vw;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+    ">
+      <img src="images/voya-logo.png" alt="Voya Travel" style="height: 48px; margin-bottom: 16px;">
+      <h2 style="
+        font-family: 'Poppins', sans-serif; font-size: 1.4rem;
+        color: #1b1b2f; margin: 0 0 8px;
+      ">Admin Login</h2>
+      <p style="color: #6b7280; font-size: 0.9rem; margin: 0 0 28px;">
+        Enter password to access the admin panel
+      </p>
+      <form id="login-form" onsubmit="return doLogin();">
+        <input
+          type="password" id="login-password" placeholder="Password"
+          style="
+            width: 100%; padding: 14px 16px; font-size: 1rem;
+            border: 1px solid #d1d5db; border-radius: 10px;
+            font-family: 'Inter', sans-serif; box-sizing: border-box;
+            margin-bottom: 16px; transition: border-color 0.2s;
+          "
+          onfocus="this.style.borderColor='#0B9BAE'"
+          onblur="this.style.borderColor='#d1d5db'"
+          autocomplete="current-password"
+        >
+        <button type="submit" style="
+          width: 100%; padding: 14px; font-size: 1rem;
+          background: #0B9BAE; color: #fff; border: none;
+          border-radius: 10px; font-family: 'Inter', sans-serif;
+          font-weight: 600; cursor: pointer; transition: background 0.2s;
+        " onmouseover="this.style.background='#098696'"
+          onmouseout="this.style.background='#0B9BAE'">
+          Login
+        </button>
+      </form>
+      <p id="login-error" style="
+        color: #dc2626; font-size: 0.85rem; margin: 12px 0 0;
+        display: none;
+      "></p>
+      <p style="color: #9ca3af; font-size: 0.75rem; margin: 20px 0 0;">
+        Default password: <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">voya2024</code><br>
+        (Change via ADMIN_PASSWORD env var in Zeabur)
+      </p>
+    </div>
+  </div>
+
   <!-- Admin Header -->
   <div class="admin-header">
     <h1>
       <img src="images/voya-logo.png" alt="Voya Travel" style="height:32px;filter:brightness(0) invert(1);">
       Admin Panel
     </h1>
-    <a href="index.html">&larr; Back to Website</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="index.html" style="color:#fff;opacity:0.85;text-decoration:none;font-size:0.9rem;">← Back to Website</a>
+      <button onclick="adminLogout()" style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:0.85rem;font-family:'Inter',sans-serif;">Logout</button>
+    </div>
   </div>
 
   <!-- Tabs -->

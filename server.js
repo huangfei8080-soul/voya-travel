@@ -14,6 +14,27 @@ const ROOT = __dirname;
 const DATA_FILE = path.join(ROOT, "data", "data.json");
 const IMG_DIR = path.join(ROOT, "images");
 
+// In-memory session store (resets on server restart)
+const sessions = {};
+
+/* ---- Password ---- */
+// Set ADMIN_PASSWORD env var in Zeabur to override default
+const ADMIN_PWD = process.env.ADMIN_PASSWORD || "voya2024";
+
+function generateSession() {
+  const token = Math.random().toString(36).slice(2) + Date.now().toString(36);
+  sessions[token] = { expires: Date.now() + 24 * 60 * 60 * 1000 }; // 24h
+  return token;
+}
+
+function verifySession(token) {
+  if (!token || !sessions[token]) return false;
+  if (sessions[token].expires < Date.now()) { delete sessions[token]; return false; }
+  // Refresh expiry on valid use
+  sessions[token].expires = Date.now() + 24 * 60 * 60 * 1000;
+  return true;
+}
+
 /* ---- MIME types ---- */
 const MIME = {
   ".html": "text/html",
@@ -113,7 +134,35 @@ function serveStatic(req, res) {
 /* ---- API Router ---- */
 async function handleAPI(req, res, method, segments) {
   // segments example: ["api", "products"] or ["api", "products", "greek-island-hopping"]
-  const resource = segments[1]; // products | promotions | journal | upload | data
+  const resource = segments[1]; // products | promotions | journal | upload | data | login
+
+  // POST /api/login — authenticate
+  if (resource === "login" && method === "POST") {
+    const body = await readBody(req);
+    if (body.password === ADMIN_PWD) {
+      const token = generateSession();
+      sendJSON(res, 200, { success: true, token: token });
+    } else {
+      sendJSON(res, 401, { success: false, error: "密码错误 / Invalid password" });
+    }
+    return;
+  }
+
+  // GET /api/verify — verify session token (no auth required)
+  if (resource === "verify" && method === "GET") {
+    const urlObj = new URL(req.url, `http://${req.headers.host}`);
+    const token = urlObj.searchParams.get("token");
+    sendJSON(res, 200, { valid: verifySession(token) });
+    return;
+  }
+
+  // Auth required for all other API endpoints
+  const urlObj = new URL(req.url, `http://${req.headers.host}`);
+  const token = urlObj.searchParams.get("token");
+  if (!verifySession(token)) {
+    sendJSON(res, 401, { error: "Please login first" });
+    return;
+  }
 
   // GET /api/data — return everything
   if (resource === "data" && method === "GET") {
