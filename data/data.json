@@ -4,7 +4,7 @@
     "logoText": "Voya Travel",
     "logoImage": "images/voya-logo.png",
     "tagline": "Group Travel That Hits Different",
-    "promoBarText": "Free cancellation on 2026 trips up to 30 days before departure*"
+    "promoBarText": "Free cancellation on 2026 trips"
   },
   "nav": [
     {
@@ -291,6 +291,254 @@
       "highlights": [],
       "included": [],
       "notIncluded": []
+    },
+    {
+      "id": "jiangxi-guizhou-guangxi-22d",
+      "title": "Jiangxi, Guizhou & Guangxi 22 Days",
+      "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
+      "badge": "new",
+      "rating": 4.8,
+      "reviewCount": 45,
+      "desc": "A spectacular 22-day journey through Jiangxi, Guizhou, and Guangxi. Explore Taoist sacred mountains, picturesque villages, stunning karst landscapes, and vibrant ethnic cultures.",
+      "days": 22,
+      "places": 12,
+      "countries": 1,
+      "priceFrom": 5300,
+      "currency": "AUD",
+      "category": "Asia",
+      "gallery": [
+        "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
+        "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80",
+        "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Sydney – Guangzhou – Nanchang",
+          "desc": "Depart from Sydney, transit via Guangzhou. Overnight at transit hotel.",
+          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+        },
+        {
+          "day": 2,
+          "title": "Guangzhou – Nanchang",
+          "desc": "Free day in Guangzhou. Flight to Nanchang in the evening.",
+          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+        },
+        {
+          "day": 3,
+          "title": "Nanchang – Yingtan",
+          "desc": "Visit Tengwang Pavilion, Wanshou Palace Historical Block, Shengjin Tower, and Bada Shanren Memorial Hall.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 4,
+          "title": "Yingtan – Gexian Fairy Village",
+          "desc": "Visit Longhu Mountain Scenic Area, Shangqing Ancient Town, and Tianshi Temple. Explore Gexian Fairy Village.",
+          "image": "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+        },
+        {
+          "day": 5,
+          "title": "Gexian Fairy Village – Wangxian Valley – Shangrao",
+          "desc": "Cable car up Gexian Mountain, visit Gexian Temple. Explore Wangxian Valley.",
+          "image": "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+        },
+        {
+          "day": 6,
+          "title": "Shangrao – Sanqing Mountain – Wuyuan",
+          "desc": "Cable car up Sanqing Mountain, visit Nanqing Park, West Coast, and Sunshine Coast.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 7,
+          "title": "Wuyuan – Jingdezhen",
+          "desc": "Explore Huangling Village in Wuyuan. Visit Jingdezhen, the porcelain capital.",
+          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+        }
+      ],
+      "highlights": [
+        "22-day in-depth exploration of Jiangxi, Guizhou, and Guangxi",
+        "Visit Taoist sacred mountains: Gexian Mountain and Sanqing Mountain",
+        "Explore picturesque villages: Wuyuan Huangling, Wangxian Valley",
+        "Discover the porcelain capital: Jingdezhen",
+        "Experience stunning karst landscapes in Guizhou",
+        "Small group with expert local guides"
+      ],
+      "included": [
+        "International and domestic flights with tax",
+        "High-speed train tickets (second class)",
+        "4-star hotel accommodation with breakfast",
+        "Meals and entry tickets as per itinerary",
+        "Cable car and shuttle bus where specified",
+        "Coach service",
+        "English-speaking guide"
+      ],
+      "notIncluded": [
+        "Tips for guide and driver (AUD 250/person)",
+        "Travel insurance",
+        "Other meals not specified",
+        "Personal expenses"
+      ]
+    },
+    {
+      "id": "europe-austria-czech-hungary-slovakia-germany",
+      "title": "Austria, Czech, Hungary, Slovakia & Germany Discovery",
+      "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
+      "badge": "popular",
+      "rating": 4.9,
+      "reviewCount": 78,
+      "desc": "A magnificent journey through 5 European countries. Explore imperial cities, medieval towns, fairy-tale castles, and the stunning Rhine River valley.",
+      "days": 16,
+      "places": 15,
+      "countries": 5,
+      "priceFrom": 5899,
+      "currency": "AUD",
+      "category": "Europe",
+      "gallery": [
+        "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80",
+        "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80",
+        "https://images.unsplash.com/photo-1467810563316-b547652d1325?w=800&q=80"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Sydney – Guangzhou – Frankfurt",
+          "desc": "Depart from Sydney via Guangzhou. Transit hotel overnight in Guangzhou.",
+          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+        },
+        {
+          "day": 2,
+          "title": "Guangzhou – Frankfurt",
+          "desc": "Free day in Guangzhou. Evening flight to Frankfurt.",
+          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+        },
+        {
+          "day": 3,
+          "title": "Frankfurt",
+          "desc": "Arrive in Frankfurt. City sightseeing: Frankfurt Cathedral, Römer, Eiserner Steg, Goethe University.",
+          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+        },
+        {
+          "day": 4,
+          "title": "Frankfurt – Rüdesheim – Koblenz",
+          "desc": "Full-day Rhine River cruise. Visit Rüdesheim, Lorelei Rock, and Deutsches Eck in Koblenz.",
+          "image": "https://images.unsplash.com/photo-1467810563316-b547652d1325?w=800&q=80"
+        },
+        {
+          "day": 5,
+          "title": "Frankfurt – Heidelberg – Rothenburg – Stuttgart",
+          "desc": "Visit Heidelberg, then Rothenburg ob der Tauber. Evening arrival in Stuttgart.",
+          "image": "https://images.unsplash.com/photo-1516550893923-42d28e5677af?w=800&q=80"
+        },
+        {
+          "day": 6,
+          "title": "Stuttgart – Neuschwanstein – Munich",
+          "desc": "Visit Neuschwanstein Castle. Afternoon arrival in Munich.",
+          "image": "https://images.unsplash.com/photo-1467810563316-b547652d1325?w=800&q=80"
+        },
+        {
+          "day": 7,
+          "title": "Munich – Plzen – Prague",
+          "desc": "Munich sightseeing: Marienplatz, New Town Hall. Stop at Plzen, then proceed to Prague.",
+          "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800&q=80"
+        }
+      ],
+      "highlights": [
+        "5 European countries: Germany, Austria, Czech Republic, Hungary, Slovakia",
+        "Rhine River cruise through the most scenic section",
+        "Neuschwanstein Castle - the fairy-tale castle",
+        "Prague - the City of a Hundred Spires",
+        "Medieval gems: Rothenburg, Cesky Krumlov",
+        "Expert tour leader throughout"
+      ],
+      "included": [
+        "International flights with tax",
+        "4-star hotel accommodation with breakfast",
+        "Coach service",
+        "English-speaking guide and tour leader",
+        "Rhine River cruise",
+        "Entry tickets as per itinerary"
+      ],
+      "notIncluded": [
+        "Tips for guide and driver",
+        "Travel insurance",
+        "Some meals",
+        "Personal expenses",
+        "Optional excursions"
+      ]
+    },
+    {
+      "id": "guizhou-yunnan-17d",
+      "title": "Guizhou & Yunnan Panorama 17 Days",
+      "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
+      "badge": "hot",
+      "rating": 4.7,
+      "reviewCount": 62,
+      "desc": "A 17-day deep exploration of Guizhou and Yunnan. Discover mystical karst caves, ethnic cultures, towering peaks, and mirror-like lakes.",
+      "days": 17,
+      "places": 10,
+      "countries": 1,
+      "priceFrom": 3899,
+      "currency": "AUD",
+      "category": "Asia",
+      "gallery": [
+        "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
+        "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80",
+        "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Sydney – Guangzhou – Guiyang",
+          "desc": "Depart from Sydney via Guangzhou. Arrive in Guiyang, transfer to hotel.",
+          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+        },
+        {
+          "day": 2,
+          "title": "Guiyang – Libo",
+          "desc": "Drive to Libo (~3.5hrs). Visit Xiaoqikong (Small Seven Arches) Scenic Area.",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        },
+        {
+          "day": 3,
+          "title": "Libo – Guiyang",
+          "desc": "Visit Daqikong (Big Seven Arches). Return to Guiyang, visit Jiaxiu Tower and Qingyun Market.",
+          "image": "https://images.unsplash.com/photo-1513415756790-2ac1db1297d-71b1e6b7d2b3?w=800&q=80"
+        },
+        {
+          "day": 4,
+          "title": "Guiyang – Zhijin Cave – Anshun",
+          "desc": "Visit Zhijin Cave, then proceed to Anshun. Visit Anshun Ancient Town.",
+          "image": "https://images.unsplash.com/photo-1537531383496-f4749b918cce?w=800&q=80"
+        },
+        {
+          "day": 5,
+          "title": "Anshun – Xingyi",
+          "desc": "Visit Dragon Palace and Tianlong Tunpu. Drive to Xingyi (~4hrs).",
+          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+        }
+      ],
+      "highlights": [
+        "17-day in-depth tour of Guizhou and Yunnan",
+        "Xiaoqikong - the Green Gem on Earth's Belt",
+        "Zhijin Cave - King of Chinese Karst Caves",
+        "Wanfenglin - Thousands of karst peaks",
+        "Maling River Gorge - The Most Beautiful Scar on Earth",
+        "Experience Buyi ethnic culture"
+      ],
+      "included": [
+        "International and domestic flights with tax",
+        "4-star hotel accommodation with breakfast",
+        "Meals as per itinerary",
+        "Entry tickets and shuttle buses",
+        "Coach service",
+        "English-speaking guide"
+      ],
+      "notIncluded": [
+        "Tips for guide and driver",
+        "Travel insurance",
+        "Some meals and personal expenses",
+        "Optional excursions"
+      ]
     }
   ],
   "promotions": [
