@@ -90,7 +90,103 @@
       "countries": 1,
       "priceFrom": 2545,
       "currency": "$",
-      "category": "Europe"
+      "category": "Europe",
+      "gallery": [
+        "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80",
+        "https://images.unsplash.com/photo-1571406384355-e0cced73a8a9?w=800&q=80",
+        "https://images.unsplash.com/photo-1599930113854-d6d7fd521f10?w=800&q=80"
+      ],
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive in Athens",
+          "desc": "Welcome to Greece! Meet your group and Trip Manager at the hotel. Tonight, a welcome dinner in the Plaka district with views of the Acropolis.",
+          "image": "https://images.unsplash.com/photo-1599930113854-d6d7fd521f10?w=800&q=80"
+        },
+        {
+          "day": 2,
+          "title": "Athens to Mykonos",
+          "desc": "Morning ferry to Mykonos. Explore the white-washed streets of Mykonos Town, visit Little Venice, and watch the sunset at the windmills.",
+          "image": "https://images.unsplash.com/photo-1571406384355-e0cced73a8a9?w=800&q=80"
+        },
+        {
+          "day": 3,
+          "title": "Mykonos Beach Day",
+          "desc": "Full day at Paradise Beach. Swim, sunbathe, and enjoy the beach party atmosphere. Optional visit to Delos Island ruins.",
+          "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80"
+        },
+        {
+          "day": 4,
+          "title": "Mykonos to Paros",
+          "desc": "Ferry to Paros. Explore Parikia town, visit the Church of 100 Doors, and enjoy a seafood dinner by the harbor.",
+          "image": "https://images.unsplash.com/photo-1543340713-8c1bbede55c0?w=800&q=80"
+        },
+        {
+          "day": 5,
+          "title": "Paros Exploration",
+          "desc": "Explore Naoussa fishing village, rent a quad bike to explore hidden beaches, and try local wine tasting.",
+          "image": "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=800&q=80"
+        },
+        {
+          "day": 6,
+          "title": "Paros to Santorini",
+          "desc": "Ferry to the iconic Santorini. Check into your cave hotel in Oia. Watch the world's most famous sunset over the caldera.",
+          "image": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80"
+        },
+        {
+          "day": 7,
+          "title": "Santorini Volcano Tour",
+          "desc": "Boat tour to the volcanic islands. Swim in hot springs, hike the volcano, and enjoy a Greek BBQ on board.",
+          "image": "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=800&q=80"
+        },
+        {
+          "day": 8,
+          "title": "Santorini Free Day",
+          "desc": "Free day to explore Fira, visit the black sand beaches, or book a wine tour. Farewell dinner with the group tonight.",
+          "image": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80"
+        },
+        {
+          "day": 9,
+          "title": "Santorini to Ios",
+          "desc": "Ferry to Ios, the party island. Afternoon at Mylopotas Beach, evening out in Ios Town.",
+          "image": "https://images.unsplash.com/photo-1543340713-8c1bbede55c0?w=800&q=80"
+        },
+        {
+          "day": 10,
+          "title": "Ios Beach & Party",
+          "desc": "Full day in Ios. Beach activities, water sports, and the legendary Ios nightlife.",
+          "image": "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=800&q=80"
+        },
+        {
+          "day": 11,
+          "title": "Depart Ios",
+          "desc": "Ferry back to Athens for departure. Say goodbye to your new friends and head home with unforgettable memories.",
+          "image": "https://images.unsplash.com/photo-1599930113854-d6d7fd521f10?w=800&q=80"
+        }
+      ],
+      "highlights": [
+        "Island hop 4 Greek islands: Mykonos, Paros, Santorini & Ios",
+        "Watch the legendary Oia sunset in Santorini",
+        "Volcano tour with hot springs swim",
+        "Welcome & farewell dinners included",
+        "Small group: max 16 travelers"
+      ],
+      "included": [
+        "10 nights accommodation in 3-4 star hotels",
+        "All inter-island ferry tickets",
+        "Welcome dinner in Athens",
+        "Farewell dinner in Santorini",
+        "Volcano boat tour",
+        "Expert Trip Manager throughout",
+        "All transport between destinations"
+      ],
+      "notIncluded": [
+        "International flights to/from Athens",
+        "Travel insurance",
+        "Lunches and most dinners",
+        "Optional excursions",
+        "Personal expenses"
+      ]
     },
     {
       "id": "thai-island-hopper",
@@ -105,7 +201,12 @@
       "countries": 1,
       "priceFrom": 1094,
       "currency": "$",
-      "category": "Asia"
+      "category": "Asia",
+      "gallery": [],
+      "itinerary": [],
+      "highlights": [],
+      "included": [],
+      "notIncluded": []
     },
     {
       "id": "japan-express",
@@ -120,7 +221,12 @@
       "countries": 1,
       "priceFrom": 3299,
       "currency": "$",
-      "category": "Asia"
+      "category": "Asia",
+      "gallery": [],
+      "itinerary": [],
+      "highlights": [],
+      "included": [],
+      "notIncluded": []
     },
     {
       "id": "morocco-discovery",
@@ -135,7 +241,12 @@
       "countries": 1,
       "priceFrom": 1899,
       "currency": "$",
-      "category": "Africa"
+      "category": "Africa",
+      "gallery": [],
+      "itinerary": [],
+      "highlights": [],
+      "included": [],
+      "notIncluded": []
     },
     {
       "id": "italy-express",
@@ -150,7 +261,12 @@
       "countries": 1,
       "priceFrom": 2199,
       "currency": "$",
-      "category": "Europe"
+      "category": "Europe",
+      "gallery": [],
+      "itinerary": [],
+      "highlights": [],
+      "included": [],
+      "notIncluded": []
     },
     {
       "id": "peru-explorer",
@@ -165,7 +281,12 @@
       "countries": 1,
       "priceFrom": 2799,
       "currency": "$",
-      "category": "South America"
+      "category": "South America",
+      "gallery": [],
+      "itinerary": [],
+      "highlights": [],
+      "included": [],
+      "notIncluded": []
     }
   ],
   "promotions": [

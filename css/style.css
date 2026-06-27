@@ -1031,3 +1031,519 @@ h4 { font-size: 1.2rem; }
 .fade-in {
   animation: fadeInUp 0.5s ease-out;
 }
+
+/* ============================================
+   PRODUCT DETAIL PAGE
+   ============================================ */
+
+/* --- Detail Hero --- */
+.detail-hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.detail-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.detail-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,61,69,0.85) 0%, rgba(8,61,69,0.3) 60%, transparent 100%);
+}
+
+.detail-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.detail-hero__badge {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.detail-hero__content h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.detail-hero__meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.92rem;
+}
+
+.detail-hero__meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-hero__rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #FFD60A;
+  font-weight: 600;
+}
+
+.detail-hero__rating .reviews {
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+/* --- Detail Layout --- */
+.detail-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+}
+
+.detail-main h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.detail-main > p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-size: 1.02rem;
+}
+
+/* --- Gallery --- */
+.detail-gallery {
+  margin-bottom: 40px;
+}
+
+.detail-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.detail-gallery__grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.detail-gallery__grid img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Highlights --- */
+.detail-highlights {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 40px;
+}
+
+.detail-highlights h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.detail-highlights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detail-highlights li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.detail-highlights li::before {
+  content: "\u2714";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* --- Itinerary Timeline --- */
+.detail-itinerary {
+  margin-bottom: 40px;
+}
+
+.itinerary-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.itinerary-timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.itinerary-day {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.itinerary-day:last-child {
+  margin-bottom: 0;
+}
+
+.itinerary-day__number {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.itinerary-day__card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.itinerary-day__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.itinerary-day__body {
+  padding: 18px 22px;
+}
+
+.itinerary-day__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+
+.itinerary-day__desc {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* --- Included / Not Included --- */
+.detail-included {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.included-box {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.included-box h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+}
+
+.included-box--yes h3 {
+  color: #16a34a;
+  border-bottom: 2px solid #dcfce7;
+}
+
+.included-box--no h3 {
+  color: #dc2626;
+  border-bottom: 2px solid #fee2e2;
+}
+
+.included-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.included-box li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.included-box--yes li::before {
+  content: "\u2714";
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+}
+
+.included-box--no li::before {
+  content: "\u2718";
+  position: absolute;
+  left: 0;
+  color: #dc2626;
+}
+
+/* --- Booking Sidebar --- */
+.detail-sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.booking-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.booking-card__price {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.booking-card__price-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.booking-card__price-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.booking-card__price-was {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin-left: 10px;
+}
+
+.booking-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.booking-card__meta-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+}
+
+.booking-card__meta-item span:first-child {
+  color: var(--color-text-muted);
+}
+
+.booking-card__meta-item span:last-child {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.booking-card .btn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.booking-card__note {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 12px;
+}
+
+/* --- Detail Back Link --- */
+.detail-back {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 24px 0;
+}
+
+.detail-back a {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.detail-back a:hover {
+  opacity: 0.8;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .detail-sidebar {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .detail-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .detail-included {
+    grid-template-columns: 1fr;
+  }
+  .detail-hero__content h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* --- Admin: Itinerary & Gallery Editors --- */
+.itinerary-editor,
+.gallery-editor {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #f9fafb;
+}
+
+.itinerary-day-edit {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.itinerary-day-edit__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.itinerary-day-edit__header span {
+  font-weight: 600;
+  color: #0B9BAE;
+  font-size: 0.9rem;
+}
+
+.gallery-editor__item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.gallery-editor__item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.gallery-editor__item input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.btn-remove-day,
+.btn-remove-gallery {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-remove-day:hover,
+.btn-remove-gallery:hover {
+  background: #fecaca;
+}
+
+.btn-add-day,
+.btn-add-gallery {
+  background: #e0f7fa;
+  color: #0B9BAE;
+  border: 1px dashed #0B9BAE;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-add-day:hover,
+.btn-add-gallery:hover {
+  background: #b2ebf2;
+}
+
+/* --- Admin: Settings Tab --- */
+.settings-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  max-width: 600px;
+}

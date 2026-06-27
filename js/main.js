@@ -215,7 +215,7 @@
             "<span>\uD83C\uDF0D " + p.countries + " Country" + (p.countries > 1 ? "ies" : "") + "</span>" +
           "</div>" +
           '<div class="card__price">' + priceHTML + "</div>" +
-          '<a href="products.html" class="btn btn--ghost btn--block">View Trip</a>' +
+          '<a href="product-detail.html?id=' + encodeURIComponent(p.id) + '" class="btn btn--ghost btn--block">View Trip</a>' +
         "</div>" +
       "</article>"
     );
@@ -488,6 +488,147 @@
   }
 
   /* ============================================
+     RENDER: Product Detail Page
+     ============================================ */
+  function renderProductDetail() {
+    var el = document.getElementById("product-detail");
+    if (!el) return;
+
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get("id");
+    if (!id) {
+      el.innerHTML = '<div class="container" style="padding:80px 24px;text-align:center;"><h2>Trip not found.</h2><p><a href="products.html" style="color:var(--color-accent);font-weight:600;">&larr; Back to all trips</a></p></div>';
+      return;
+    }
+
+    var allItems = (C.products || []).concat(C.promotions || []);
+    var p = allItems.find(function (item) { return item.id === id; });
+
+    if (!p) {
+      el.innerHTML = '<div class="container" style="padding:80px 24px;text-align:center;"><h2>Trip not found.</h2><p><a href="products.html" style="color:var(--color-accent);font-weight:600;">&larr; Back to all trips</a></p></div>';
+      return;
+    }
+
+    document.title = p.title + " - Voya Travel";
+
+    var bLabel = badgeLabel(p.badge, p.saveAmount);
+    var galleryHTML = "";
+    if (p.gallery && p.gallery.length) {
+      galleryHTML =
+        '<section class="detail-gallery">' +
+          "<h2>Photo Gallery</h2>" +
+          '<div class="detail-gallery__grid">' +
+            p.gallery.map(function (g) {
+              return '<img src="' + g + '" alt="' + esc(p.title) + '" loading="lazy">';
+            }).join("") +
+          "</div>" +
+        "</section>";
+    }
+
+    var highlightsHTML = "";
+    if (p.highlights && p.highlights.length) {
+      highlightsHTML =
+        '<section class="detail-highlights">' +
+          "<h3>Trip Highlights</h3>" +
+          "<ul>" + p.highlights.map(function (h) { return "<li>" + esc(h) + "</li>"; }).join("") + "</ul>" +
+        "</section>";
+    }
+
+    var itineraryHTML = "";
+    if (p.itinerary && p.itinerary.length) {
+      itineraryHTML =
+        '<section class="detail-itinerary">' +
+          "<h2>Day-by-Day Itinerary</h2>" +
+          '<div class="itinerary-timeline">' +
+            p.itinerary.map(function (day) {
+              return (
+                '<div class="itinerary-day">' +
+                  '<div class="itinerary-day__number">' + day.day + "</div>" +
+                  '<div class="itinerary-day__card">' +
+                    (day.image ? '<img class="itinerary-day__image" src="' + day.image + '" alt="' + esc(day.title) + '" loading="lazy">' : "") +
+                    '<div class="itinerary-day__body">' +
+                      '<h3 class="itinerary-day__title">Day ' + day.day + ": " + esc(day.title) + "</h3>" +
+                      '<p class="itinerary-day__desc">' + esc(day.desc) + "</p>" +
+                    "</div>" +
+                  "</div>" +
+                "</div>"
+              );
+            }).join("") +
+          "</div>" +
+        "</section>";
+    }
+
+    var includedHTML = "";
+    if ((p.included && p.included.length) || (p.notIncluded && p.notIncluded.length)) {
+      includedHTML =
+        '<section class="detail-included">' +
+          (p.included && p.included.length
+            ? '<div class="included-box included-box--yes"><h3>\u2714 What\'s Included</h3><ul>' +
+              p.included.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul></div>"
+            : "") +
+          (p.notIncluded && p.notIncluded.length
+            ? '<div class="included-box included-box--no"><h3>\u2718 Not Included</h3><ul>' +
+              p.notIncluded.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul></div>"
+            : "") +
+        "</section>";
+    }
+
+    var priceHTML = p.originalPrice
+      ? '<span class="booking-card__price-value">' + money(p.priceFrom, p.currency) + "</span>" +
+        '<span class="booking-card__price-was">' + money(p.originalPrice, p.currency) + "</span>"
+      : '<span class="booking-card__price-value">' + money(p.priceFrom, p.currency) + "</span>";
+
+    var sidebarHTML =
+      '<aside class="detail-sidebar">' +
+        '<div class="booking-card">' +
+          '<div class="booking-card__price">' +
+            '<div class="booking-card__price-label">From</div>' +
+            priceHTML +
+          "</div>" +
+          '<div class="booking-card__meta">' +
+            '<div class="booking-card__meta-item"><span>Duration</span><span>' + p.days + " Days</span></div>" +
+            '<div class="booking-card__meta-item"><span>Places</span><span>' + p.places + "</span></div>" +
+            '<div class="booking-card__meta-item"><span>Countries</span><span>' + p.countries + "</span></div>" +
+            '<div class="booking-card__meta-item"><span>Rating</span><span>' + stars(p.rating) + " " + p.rating + "</span></div>" +
+            '<div class="booking-card__meta-item"><span>Reviews</span><span>' + p.reviewCount + "</span></div>" +
+            (p.category ? '<div class="booking-card__meta-item"><span>Region</span><span>' + esc(p.category) + "</span></div>" : "") +
+          "</div>" +
+          '<a href="#" class="btn btn--primary btn--lg">Book This Trip</a>' +
+          '<a href="products.html" class="btn btn--outline btn--block">View All Trips</a>' +
+          '<p class="booking-card__note">Free cancellation up to 30 days before departure</p>' +
+        "</div>" +
+      "</aside>";
+
+    el.innerHTML =
+      '<div class="detail-back"><a href="products.html">&larr; All Trips</a></div>' +
+      '<section class="detail-hero">' +
+        '<div class="detail-hero__bg" style="background-image:url(' + p.image + ')"></div>' +
+        '<div class="detail-hero__overlay"></div>' +
+        '<div class="detail-hero__content">' +
+          (bLabel ? '<span class="detail-hero__badge">' + esc(bLabel) + "</span>" : "") +
+          "<h1>" + esc(p.title) + "</h1>" +
+          '<div class="detail-hero__meta">' +
+            '<span>\u23F1 ' + p.days + " Days</span>" +
+            '<span>\uD83D\uDCCD ' + p.places + " Places</span>" +
+            '<span>\uD83C\uDF0D ' + p.countries + " Country" + (p.countries > 1 ? "ies" : "") + "</span>" +
+            '<span class="detail-hero__rating">\u2605 ' + p.rating + ' <span class="reviews">(' + p.reviewCount + " reviews)</span></span>" +
+          "</div>" +
+        "</div>" +
+      "</section>" +
+      '<div class="detail-layout">' +
+        '<div class="detail-main">' +
+          "<h2>Overview</h2>" +
+          "<p>" + esc(p.desc) + "</p>" +
+          highlightsHTML +
+          galleryHTML +
+          itineraryHTML +
+          includedHTML +
+        "</div>" +
+        sidebarHTML +
+      "</div>";
+  }
+
+  /* ============================================
      INIT: Run all renderers
      ============================================ */
   function init() {
@@ -499,6 +640,7 @@
     renderPromotionsPage();
     renderJournalPage();
     renderAboutPage();
+    renderProductDetail();
     renderFooter();
   }
 

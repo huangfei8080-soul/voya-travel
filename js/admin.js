@@ -11,6 +11,7 @@
   var products = [];
   var promotions = [];
   var journal = [];
+  var settings = {};
 
   /* ---- Toast notification ---- */
   function toast(msg, isError) {
@@ -83,9 +84,11 @@
       products = data.products || [];
       promotions = data.promotions || [];
       journal = data.journal || [];
+      settings = data.brand || {};
       renderProducts();
       renderPromos();
       renderJournal();
+      renderSettings();
     }).catch(function () {
       toast("Cannot connect to server. Is server.js running?", true);
     });
@@ -157,6 +160,27 @@
           '<div class="form-field"><label>Review Count</label><input type="number" id="pf-reviews" value="' + p.reviewCount + '"></div>' +
           '<div class="form-field"><label>Save Amount (if badge=save)</label><input type="number" id="pf-save" value="' + (p.saveAmount || 0) + '"></div>' +
         '</div>' +
+        /* --- Itinerary Editor --- */
+        '<div class="itinerary-editor" style="margin-top:20px;">' +
+          '<h4 style="margin-bottom:12px;color:#0B9BAE;">Day-by-Day Itinerary</h4>' +
+          '<div id="pf-itinerary-list">' + buildItineraryRows(p.itinerary || []) + '</div>' +
+          '<button class="btn-add-day" onclick="addItineraryDay()">+ Add Day</button>' +
+        '</div>' +
+        /* --- Gallery Editor --- */
+        '<div class="gallery-editor" style="margin-top:16px;">' +
+          '<h4 style="margin-bottom:12px;color:#0B9BAE;">Photo Gallery</h4>' +
+          '<div id="pf-gallery-list">' + buildGalleryRows(p.gallery || []) + '</div>' +
+          '<button class="btn-add-gallery" onclick="addGalleryItem()">+ Add Image</button>' +
+        '</div>' +
+        /* --- Highlights / Included / Not Included --- */
+        '<div class="form-row" style="margin-top:16px;">' +
+          '<div class="form-field"><label>Trip Highlights (one per line)</label><textarea id="pf-highlights" style="min-height:100px;">' + (p.highlights || []).join("\n") + '</textarea></div>' +
+          '<div class="form-field"><label>What\'s Included (one per line)</label><textarea id="pf-included" style="min-height:100px;">' + (p.included || []).join("\n") + '</textarea></div>' +
+        '</div>' +
+        '<div class="form-row--full form-field" style="margin-bottom:16px;">' +
+          '<label>Not Included (one per line)</label>' +
+          '<textarea id="pf-notincluded" style="min-height:80px;">' + (p.notIncluded || []).join("\n") + '</textarea>' +
+        '</div>' +
         '<div style="display:flex;gap:12px;margin-top:20px;">' +
           '<button class="btn-save" onclick="saveProduct(\'' + (id || "") + '\')">' + (existing ? "Update" : "Create") + '</button>' +
           '<button class="btn-cancel" onclick="cancelProductForm()">Cancel</button>' +
@@ -176,6 +200,110 @@
       reader.readAsDataURL(file);
     }
   };
+
+  /* ---- Itinerary & Gallery editor helpers ---- */
+  function buildItineraryRows(itinerary) {
+    if (!itinerary || !itinerary.length) return "";
+    return itinerary.map(function (day, i) {
+      return itineraryDayRow(i + 1, day);
+    }).join("");
+  }
+
+  function itineraryDayRow(dayNum, day) {
+    day = day || { title: "", desc: "", image: "" };
+    return (
+      '<div class="itinerary-day-edit" data-day-index="' + (dayNum - 1) + '">' +
+        '<div class="itinerary-day-edit__header">' +
+          "<span>Day " + dayNum + "</span>" +
+          '<button class="btn-remove-day" onclick="removeItineraryDay(this)">Remove</button>' +
+        "</div>" +
+        '<div class="form-row" style="margin-bottom:8px;">' +
+          '<div class="form-field"><label>Title</label><input type="text" class="iti-title" value="' + esc(day.title) + '"></div>' +
+          '<div class="form-field"><label>Image URL</label><input type="text" class="iti-image" value="' + esc(day.image || "") + '" placeholder="Image URL"></div>' +
+        "</div>" +
+        '<div class="form-field"><label>Description</label><textarea class="iti-desc" style="min-height:60px;">' + esc(day.desc || "") + "</textarea></div>" +
+      "</div>"
+    );
+  }
+
+  window.addItineraryDay = function () {
+    var list = document.getElementById("pf-itinerary-list");
+    var count = list.children.length;
+    var div = document.createElement("div");
+    div.innerHTML = itineraryDayRow(count + 1);
+    list.appendChild(div.firstChild);
+  };
+
+  window.removeItineraryDay = function (btn) {
+    var row = btn.closest(".itinerary-day-edit");
+    if (row) row.remove();
+  };
+
+  function buildGalleryRows(gallery) {
+    if (!gallery || !gallery.length) return "";
+    return gallery.map(function (url) {
+      return galleryItemRow(url);
+    }).join("");
+  }
+
+  function galleryItemRow(url) {
+    return (
+      '<div class="gallery-editor__item">' +
+        (url ? '<img src="' + url + '" alt="">' : '<img src="" alt="" style="display:none;">') +
+        '<input type="text" class="gallery-url" value="' + esc(url || "") + '" placeholder="Image URL" onchange="previewGalleryImg(this)">' +
+        '<button class="btn-remove-gallery" onclick="this.parentElement.remove()">Remove</button>' +
+      "</div>"
+    );
+  }
+
+  window.addGalleryItem = function () {
+    var list = document.getElementById("pf-gallery-list");
+    var div = document.createElement("div");
+    div.innerHTML = galleryItemRow("");
+    list.appendChild(div.firstChild);
+  };
+
+  window.previewGalleryImg = function (input) {
+    var img = input.parentElement.querySelector("img");
+    if (input.value) {
+      img.src = input.value;
+      img.style.display = "block";
+    } else {
+      img.style.display = "none";
+    }
+  };
+
+  /* ---- Collect itinerary data from form ---- */
+  function collectItinerary() {
+    var rows = document.querySelectorAll("#pf-itinerary-list .itinerary-day-edit");
+    var result = [];
+    rows.forEach(function (row, i) {
+      result.push({
+        day: i + 1,
+        title: row.querySelector(".iti-title").value,
+        desc: row.querySelector(".iti-desc").value,
+        image: row.querySelector(".iti-image").value
+      });
+    });
+    return result;
+  }
+
+  /* ---- Collect gallery data from form ---- */
+  function collectGallery() {
+    var inputs = document.querySelectorAll("#pf-gallery-list .gallery-url");
+    var result = [];
+    inputs.forEach(function (input) {
+      if (input.value.trim()) result.push(input.value.trim());
+    });
+    return result;
+  }
+
+  /* ---- Collect textarea as array ---- */
+  function textareaToArray(id) {
+    var el = document.getElementById(id);
+    if (!el) return [];
+    return el.value.split("\n").map(function (s) { return s.trim(); }).filter(function (s) { return s.length > 0; });
+  }
 
   window.cancelProductForm = function () {
     document.getElementById("product-form-container").innerHTML = "";
@@ -200,7 +328,12 @@
         badge: document.getElementById("pf-badge").value,
         rating: parseFloat(document.getElementById("pf-rating").value) || 4.5,
         reviewCount: parseInt(document.getElementById("pf-reviews").value) || 0,
-        saveAmount: parseInt(document.getElementById("pf-save").value) || 0
+        saveAmount: parseInt(document.getElementById("pf-save").value) || 0,
+        itinerary: collectItinerary(),
+        gallery: collectGallery(),
+        highlights: textareaToArray("pf-highlights"),
+        included: textareaToArray("pf-included"),
+        notIncluded: textareaToArray("pf-notincluded")
       };
 
       if (id) {
@@ -491,6 +624,57 @@
       toast("Article deleted");
       loadAll();
     }).catch(function () { toast("Delete failed", true); });
+  };
+
+  /* ============================================
+     SETTINGS (Promo Bar, Brand Info)
+     ============================================ */
+  function renderSettings() {
+    var el = document.getElementById("settings-form-container");
+    if (!el) return;
+    var b = settings || {};
+
+    el.innerHTML =
+      '<div class="settings-form">' +
+        "<h3>Promo Bar & Brand Settings</h3>" +
+        '<div class="form-field" style="margin-bottom:16px;">' +
+          "<label>Promo Bar Text (top yellow banner)</label>" +
+          '<input type="text" id="sf-promo" value="' + esc(b.promoBarText || "") + '" placeholder="Leave empty to hide promo bar">' +
+          "<p style=\"font-size:0.8rem;color:#6b7280;margin-top:4px;\">This text appears in the yellow bar at the very top of every page. Leave empty to hide it.</p>" +
+        "</div>" +
+        '<div class="form-row" style="margin-bottom:16px;">' +
+          '<div class="form-field"><label>Brand Name</label><input type="text" id="sf-name" value="' + esc(b.name || "") + '"></div>' +
+          '<div class="form-field"><label>Logo Text (fallback)</label><input type="text" id="sf-logotext" value="' + esc(b.logoText || "") + '"></div>' +
+        "</div>" +
+        '<div class="form-field" style="margin-bottom:16px;">' +
+          "<label>Tagline</label>" +
+          '<input type="text" id="sf-tagline" value="' + esc(b.tagline || "") + '">' +
+        "</div>" +
+        '<div class="form-field" style="margin-bottom:16px;">' +
+          "<label>Logo Image Path</label>" +
+          '<input type="text" id="sf-logoimage" value="' + esc(b.logoImage || "") + '" placeholder="images/logo.png">' +
+        "</div>" +
+        '<div style="display:flex;gap:12px;margin-top:20px;">' +
+          '<button class="btn-save" onclick="saveSettings()">Save Settings</button>' +
+        "</div>" +
+      "</div>";
+  }
+
+  window.saveSettings = function () {
+    var data = {
+      promoBarText: document.getElementById("sf-promo").value,
+      name: document.getElementById("sf-name").value,
+      logoText: document.getElementById("sf-logotext").value,
+      tagline: document.getElementById("sf-tagline").value,
+      logoImage: document.getElementById("sf-logoimage").value
+    };
+
+    apiPut("/settings", data).then(function (res) {
+      settings = res;
+      toast("Settings saved! Refresh the website to see changes.");
+    }).catch(function () {
+      toast("Failed to save settings", true);
+    });
   };
 
   /* ============================================
