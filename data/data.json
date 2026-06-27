@@ -656,105 +656,105 @@
       "itinerary": [
         {
           "day": 1,
-          "title": "Day 1",
-          "desc": "Day 1 itinerary details to be updated. Please check the detailed schedule.",
+          "title": "Sydney – Guangzhou - Guiyang",
+          "desc": "Head to Sydney Kingsford Smith Airport early in the morning and check-in for your international flight to Guiyang via Guangzhou. Make sure you get 2 boarding passes for both connecting flights, and your checked in luggage is transferred to Guiyang directly. Meet your local guide at Guiyang airport upon arrival and transfer to hotel.",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 2,
-          "title": "Day 2",
-          "desc": "Day 2 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Guiyang - Libo",
+          "desc": "Bus transit from Guiyang to Libo (~3.5hr) in the morning. Visit Xiaoqikong (Small Seven Arches) Scenic Area in the afternoon. Known as 'The Green Gem on Earth's Belt', it integrates caves, forests, lakes, waterfalls, and streams. Highlights include the ancient Seven-Arch Bridge, the cliff-side Laya Waterfall, the cascading 68-tier Dropping Waterfall, the walkable Watery Forest, and the mirror-like Wolongtan (Crouching Dragon Pool).",
+          "image": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
         },
         {
           "day": 3,
-          "title": "Day 3",
-          "desc": "Day 3 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Libo – Guiyang",
+          "desc": "Visit Daqikong (Big Seven Arches) Scenic Area in the morning. Famous for its majestic gorge. Take a boat through the towering Terror Gorge to see the massive natural karst Natural Bridge. Return to Guiyang in the afternoon (~4hr), then visit local icons including Jiaxiu Tower and Qingyun Market in the evening. Jiaxiu Tower is a Ming Dynasty landmark pavilion built on a rock in the Nanming River, beautiful at night. Qingyun Market is a vibrant cultural and leisure block with local food and trendy shops.",
+          "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
         },
         {
           "day": 4,
-          "title": "Day 4",
-          "desc": "Day 4 itinerary details to be updated. Please check the detailed schedule.",
+          "title": "Guiyang - Zhijin Cave - Anshun",
+          "desc": "Coach ride to Zhijin Cave (~2.5hrs) in the morning. Known as 'The King of Chinese Karst Caves', a vast underground palace with spectacular stalactite formations. Then proceed to Anshun. Visit Anshun Ancient Town in the evening. It is a historic area preserving old flagstone streets and residences from the Ming and Qing dynasties.",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 5,
-          "title": "Day 5",
-          "desc": "Day 5 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Anshun - Xingyi",
+          "desc": "Visit Dragon Palace and Tianlong Tunpu in the morning. Dragon Palace features water caves, dry caves, and waterfalls. A boat ride through the underground river offers stunning views. Tianlong Tunpu is a well-preserved Ming Dynasty military garrison settlement where descendants still wear traditional attire. Coach ride to Xingyi (~4hrs), passing by Huajiang Grand Canyon Bridge en route. The bridge is a magnificent modern bridge spanning a deep gorge (viewed from service area).",
+          "image": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
         },
         {
           "day": 6,
-          "title": "Day 6",
-          "desc": "Day 6 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Xingyi Day Tour",
+          "desc": "Visit Maling River Gorge in the morning. Known as 'The Most Beautiful Scar on Earth', numerous waterfalls cascade down the deep gorge walls. Explore Wanfenglin (Ten Thousand Peak Forest) and enjoy themed afternoon tea in the afternoon. Praised by Xu Xiake, thousands of karst peaks rise above idyllic farmland and villages.",
+          "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
         },
         {
           "day": 7,
-          "title": "Day 7",
-          "desc": "Day 7 itinerary details to be updated. Please check the detailed schedule.",
+          "title": "Xingyi - Wanfeng Lake",
+          "desc": "Wanfeng Lake cruise in the morning. A vast lake dotted with islands, surrounded by countless peaks. Visit Fenglin Buyi Scenic Area and watch cultural performances in the afternoon. Experience Buyi ethnic culture and watch regular folk performances.",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 8,
-          "title": "Day 8",
-          "desc": "Day 8 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Xingyi - Kunming",
+          "desc": "Coach ride to Kunming (~4.5hr). Free time upon arrival. Kunming, known as the 'Spring City', offers pleasant weather year-round. Explore the city at your leisure.",
+          "image": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
         },
         {
           "day": 9,
-          "title": "Day 9",
-          "desc": "Day 9 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Kunming - Pu'er (By Bullet Train)",
+          "desc": "Take bullet train from Kunming to Pu'er. Visit China Pu'er Tea Expo Garden in the afternoon. A theme park showcasing Pu'er tea history, cultivation, and culture. Enjoy panoramic views of tea plantations.",
+          "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
         },
         {
           "day": 10,
-          "title": "Day 10",
-          "desc": "Day 10 itinerary details to be updated. Please check the detailed schedule.",
+          "title": "Pu'er – Xishuangbanna",
+          "desc": "Visit Pu'er National Forest Park in the morning. A sanctuary for wildlife like red pandas and rhinos. Walk through pristine forest trails. Coach ride to Xishuangbanna and visit Wild Elephant Valley in the afternoon. The best place in China to potentially observe wild Asian elephants (from a safe cable car or walkway).",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 11,
-          "title": "Day 11",
-          "desc": "Day 11 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Xishuangbanna Day Tour",
+          "desc": "Visit China-Myanmar Border and Menghai Ancient Tea Horse Road in the morning. Visit Menglun Tropical Botanical Garden and Dai Ethnic Garden in the afternoon. Menglun Tropical Botanical Garden (CAS) is China's largest botanical garden, a microcosm of the 'Kingdom of Plants'. Dai Ethnic Garden consists of five authentic Dai villages. Participate in or watch the grand daily Water-Splashing Festival activity.",
+          "image": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
         },
         {
           "day": 12,
-          "title": "Day 12",
-          "desc": "Day 12 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Xishuangbanna - Mangshi (By Flight)",
+          "desc": "Visit Primitive Forest Park in the morning. Watch ethnic song & dance performances and the spectacular peacock. Visit Mengle Great Buddha Temple and Manjing Park in the afternoon. Mengle Great Buddha Temple is a grand Southeast Asian style Buddhist temple overlooking Jinghong. Manjing Park is the former royal garden of the Dai King, with beautiful landscapes. Evening flight to Mangshi.",
+          "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
         },
         {
           "day": 13,
-          "title": "Day 13",
-          "desc": "Day 13 itinerary details to be updated. Please check the detailed schedule.",
+          "title": "Mangshi - Ruili",
+          "desc": "Visit MengHuan Grand Golden Pagoda and Pagoda Wrapped by Tree in Mangshi. The Golden Pagoda is the landmark of Mangshi. The Pagoda Wrapped by Tree is a wonder where a banyan tree has grown around and enveloped a pagoda. Coach ride to Ruili, check out the Single Tree Forest en route. Single Tree Forest is a single large banyan tree whose aerial roots have formed a small forest.",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 14,
-          "title": "Day 14",
-          "desc": "Day 14 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Ruili - Tengchong",
+          "desc": "Visit One Village Two Countries, Ruili Chief Buddhist Temple and Jiegao Port in the morning. One Village Two Countries is a unique village split by the China-Myanmar border. Jiegao Port is an important national-level border trade port. Then visit Moli Waterfall before coach ride to Tengchong. Moli Waterfall is a scenic waterfall hidden in tropical rainforest.",
+          "image": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
         },
         {
           "day": 15,
-          "title": "Day 15",
-          "desc": "Day 15 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Tengchong Day Tour",
+          "desc": "Visit Simola Wa Village and Rehai (Hot Sea) Geothermal Park in the morning. Simola Wa Village is a picturesque, primitive Wa ethnic village meaning 'the place of happiness'. Rehai Geothermal Park is the core area of Tengchong's geothermal wonders, featuring boiling springs like the Big Boiling Pot. Visit Volcanic Geopark and Heshun Ancient Town in the afternoon. Volcanic Geopark offers ancient volcanic craters. Hot air balloon rides available (optional). Heshun Ancient Town is a famous, tranquil hometown of overseas Chinese with rich history and well-preserved architecture.",
+          "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80"
         },
         {
           "day": 16,
-          "title": "Day 16",
-          "desc": "Day 16 itinerary details to be updated. Please check the detailed schedule.",
+          "title": "Tengchong - Baoshan - Kunming (By Bullet Train)",
+          "desc": "Visit Dadi Tea Plantation in the morning. Vast ecological tea plantation offering tea tasting and experiences. Coach ride to Baoshan then take bullet train back to Kunming. Kunming, the 'Spring City', welcomes you back.",
           "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
         },
         {
           "day": 17,
-          "title": "Day 17",
-          "desc": "Day 17 itinerary details to be updated. Please check the detailed schedule.",
-          "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80"
+          "title": "Depart from Kunming",
+          "desc": "Enjoy your free and easy time before heading to Kunming airport for departure. Thank you for choosing Voya Travel! Please refer to your ticket for flight details.",
+          "image": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=800&q=80"
         }
       ],
       "highlights": [
