@@ -620,7 +620,6 @@
             (p.category ? '<div class="booking-card__meta-item"><span>Region</span><span>' + esc(p.category) + "</span></div>" : "") +
           "</div>" +
           '<a href="products.html" class="btn btn--outline btn--block">View All Trips</a>' +
-          '<p class="booking-card__note">Free cancellation up to 30 days before departure</p>' +
         "</div>" +
       "</aside>";
 

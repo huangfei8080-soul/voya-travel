@@ -15,7 +15,7 @@ const SITE_CONFIG = {
     logoText: "Voya Travel",          // If no logo image, this text shows
     logoImage: "images/voya-logo.png",    // Put logo path here, e.g. "images/logo.png"
     tagline: "Group Travel That Hits Different",
-    promoBarText: "Free cancellation on 2026 trips up to 30 days before departure*",  // Leave "" to hide
+    promoBarText: "",  // Leave "" to hide
   },
 
   /* ---- 2. NAVIGATION ---- */
